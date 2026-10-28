@@ -30,7 +30,16 @@ under `examples/` certifies on a laptop ACL2.
 
 ### Part 1: for humans (`humans/`)
 
-(chapters are listed here as they land)
+- `humans/01-logic-and-prover.md`: the logic (total functions over five data
+  types, `:logic`/`:program`), definitions and termination, induction, the
+  waterfall, how to read a failed proof, the debugging tools, every hint with
+  a failing-then-fixed example, induction schemes, step limits,
+  `skip-proofs`/`defaxiom`/trust tags.
+- `humans/02-rewriting-theories-books.md`: how rules are made and used, free
+  variables, loops, every rule class, normal forms, theories, `local` and what
+  a book exports (`encapsulate`, functional instances, `defattach`), books and
+  certification (`cert.pl`, book hashes, provisional certification,
+  `make-event`, `must-fail`), with fn as the worked example.
 
 ### Part 2: for AIs (`ai/`)
 

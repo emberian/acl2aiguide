@@ -8,7 +8,7 @@
 # (~/tools/acl2-fn, built by ~/dev/fn/tools/build_local_acl2.sh). Override
 # with ACL2=... and ACL2_SYSTEM_BOOKS=... . cert.pl is the community build
 # tool (:doc build::cert.pl).
-set -eu
+set -u
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 : "${ACL2:=$HOME/tools/acl2-fn/acl2-literal-4g-tls64k}"
 : "${ACL2_SYSTEM_BOOKS:=$HOME/tools/acl2-fn/acl2-8.7/books}"
@@ -21,4 +21,7 @@ until mkdir "$lock" 2>/dev/null; do
 done
 trap 'rmdir "$lock" 2>/dev/null' EXIT INT TERM
 cd "$here"
-exec perl "$ACL2_SYSTEM_BOOKS/build/cert.pl" --acl2 "$ACL2" "$@"
+perl "$ACL2_SYSTEM_BOOKS/build/cert.pl" --acl2 "$ACL2" "$@"
+status=$?
+rmdir "$lock" 2>/dev/null
+exit $status
