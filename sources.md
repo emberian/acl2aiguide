@@ -60,6 +60,15 @@ theory-invariant, theory-management, type-prescription, type-reasoning, ubt,
 using-enabled-rules, with-prover-step-limit, with-prover-time-limit,
 working-with-packages, xargs, |About Types|, |Common Lisp|.
 
+Cited by `humans/03` and `humans/04` (beyond the above): arrays,
+attach-stobj, constraint, defabsstobj, defabsstobj-missing-events, defexec,
+defstobj, defun-nx, ec-call, evaluation, fast-alists, functional-instantiation,
+guard, guard-debug, guard-evaluation-table, guard-introduction, hons,
+hons-and-memoization, io, mbt, memoize, nested-stobjs,
+programming-with-state, set-verify-guards-eagerness, state, stobj,
+stobj-attachment-restrictions, stobj-table, swap-stobjs, sys-call, the,
+unmemoize, unsigned-byte-p, verify-guards, with-local-stobj.
+
 Cited by `humans/05` and `humans/06` (beyond the above): assert$, declare,
 defstobj, defstobj-element-type, defun-inline, efficiency, evaluation,
 guards-and-evaluation, hons-summary, mbt, note-6-2, profile, the, time$,
@@ -70,6 +79,17 @@ with-local-stobj.
 - `build/doc.lisp` (cert.pl: lines 34, 297, 558), `doc/practices.lisp:511`
   (rule naming), `std/testing/must-fail.lisp:17`,
   `std/testing/must-succeed.lisp:17`, `tools/flag.lisp:93` (humans/01, 02).
+- humans/03, 04: `centaur/bitops/top.lisp:53-80`,
+  `centaur/fgl/def-fgl-thm.lisp:108-120`, `centaur/fgl/doc.lisp` (35-91),
+  `centaur/fgl/tests.lisp:375-378`, `centaur/gl/doc.lisp:38-70`,
+  `centaur/gl/tutorial.lisp:377-400`, `defexec/`,
+  `demos/attach-stobj/mem_ht.lisp:73-81`,
+  `demos/defabsstobj-example-2.lisp:314-321`,
+  `demos/defabsstobj-example-3.lisp:5-12`, `ihs/basic-definitions.lisp:394-433`,
+  `ihs/ihs-doc-topic.lisp`, `std/io/base.lisp:956-993`,
+  `std/io/file-measure.lisp`, `std/util/defaggregate.lisp:47-55`,
+  `std/util/define.lisp` (71-92, 216-220), `std/util/returnspecs.lisp:36-46`,
+  `tools/def-functional-instance.lisp:34-56`.
 - `kestrel/c/atc/doc.lisp` (316-320, 328, 375-420, 1536-1617),
   `kestrel/c/atc/tutorial.lisp`, `kestrel/c/atc/tests/{checksum,loops}.lisp`,
   `tests/checksum-test.c`, `tests/compile.sh`; `kestrel/apt/doc.lisp:68-85`,
@@ -84,6 +104,20 @@ with-local-stobj.
   `docs/implementation.md`, `docs/resource-contract.md`.
 - `books/store-log.lisp:368`, `books/store-log-stream.lisp:335` (the
   load-bearing rule pair, humans/02).
+- humans/03, 04: `specs/crash-model-v2.md` (29-68, 617-731, 1176-1186,
+  1934-1935, 1967-1990, 1997), `books/byte-store.lisp` (1-14, 384-387,
+  421-433, 449-475, 487-492, 510-517, 557-563, 609-615, 663-667),
+  `books/assumptions.lisp` (14-16, 23-26, 56-97),
+  `books/owner-checkpoint-open.lisp` (4-12, 73-121, 134-149),
+  `books/def-carried.lisp` (23-25, 39-46, 175-207), `books/catalog.lisp`
+  (14-17, 50-115), `books/catalog-logic.lisp` (4-18, 2372),
+  `books/catalog-paged.lisp` (37-50, 76-79, 116-144),
+  `books/history-columns.lisp:13-31`, `books/octets-stobj.lisp` (72-79,
+  1167-1170), `books/def-representation.lisp:13-28`,
+  `books/proto/adt.lisp:266-273`, `books/def-loop.lisp` (5-20, 60-66,
+  124-127, 830-850), `books/defkeystone.lisp` (13-42, 48-51, 124-133,
+  148-150), `books/runtime-contract.lisp` (1-15, 62-65, 89-91, 98-111),
+  `OWED.md:11-21`; `@worktree`: `STRATEGY-20261006.md` (266-267).
 - humans/05, 06: `AGENTS.md` (20-37), `OWED.md` (3-21),
   `specs/storage.md` (443-457, 563-572, 1786-1791), `books/msgid-linear-exec.lisp`
   (7-36, 146-153, 244-263), `books/store-log.lisp` (9-13, 52-53, 102-108),
@@ -107,6 +141,17 @@ with-local-stobj.
 
 ## Papers (`~/paperbin/FILENAME`)
 
+- humans/03, 04: `goel2013-acl2-abstract-stobjs-isa-modeling.txt`,
+  `kaufmann2025-acl2-mutable-objects-several-implementations.txt`,
+  `swords2011-acl2-bit-blasting-gl.txt`, `swords2015-acl2-fix-your-types.txt`,
+  `pillai2014-all-file-systems-not-created-equal.txt`,
+  `rebello2020-can-applications-recover-fsync-failures.txt`,
+  `zheng2013-ssd-robustness-under-power-fault.txt`,
+  `chen2015-fscq-crash-hoare-logic.txt`,
+  `chen2017-dfscq-verifying-high-performance-crash-safe-fs.txt`,
+  `sigurbjarnarson2016-yggdrasil-push-button-crash-refinement.txt`,
+  `chajed2019-perennial-crash-safety-concurrency.txt`,
+  `mohan2018-crashmonkey-bounded-black-box-crash-testing.txt`.
 - `tigerbeetle2026-tiger-style.md` ("Safety"; byte-identical to TigerBeetle's
   `docs/TIGER_STYLE.md` fetched 2026-10-28), `tigerbeetle2026-architecture.md`
   ("Single Thread", "Static Memory Allocation"),
@@ -120,6 +165,10 @@ with-local-stobj.
 
 - `a97d40c2#529`: fn rule-hygiene lane's probe naming the `fn-lg-slice` /
   `fn-lgw-slice-is-take` loop runes (humans/02).
+- `a5779663#0`: a lane brief relaying the paged catalog's memory measurement
+  and its 35 obligations (humans/03).
+- `ac5fb887#20`: `with-local-stobj` of an attachable stobj in compiled code
+  making certification illegal (humans/03).
 - `b54b6026#1061`: the minidregg (Lean) statement approved on polarity alone
   and refuted by its satisfiable witness (humans/06).
 

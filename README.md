@@ -40,6 +40,14 @@ under `examples/` certifies on a laptop ACL2.
   a book exports (`encapsulate`, functional instances, `defattach`), books and
   certification (`cert.pl`, book hashes, provisional certification,
   `make-event`, `must-fail`), with fn as the worked example.
+- `humans/03-modelling-data.md`: modelling data: opaque records, guards and
+  `*1*` execution, `mbe` loop twins, `defexec`, fixed-width arithmetic,
+  stobjs (concrete, local, nested, abstract, attachable), memoization, with
+  fn's representation wounds.
+- `humans/04-modelling-systems.md`: modelling systems: I/O outside and
+  inside the logic, crash models and their gaps against hardware,
+  assumptions discharged by functional instance, step functions and trace
+  induction, refinement, generic layers, teeth and keystones.
 - `humans/05-high-performance.md`: what runs when (`*1*` vs raw, `mbe`,
   `:program`), fixed-size stobjs, finding the consing (`time$`,
   `profile`/`memsum`), fn's octet-list lesson, group commit and one executor
