@@ -133,7 +133,7 @@ with-local-stobj.
   `EMBER.md`, `RUNTIME-MODEL-DRAFT-20261009.md`, `CUT-M2-PLAN-20261027.md`,
   `RULINGS.md`, `lanedumps/cut-m2a-lb-continuation.md`,
   `lanedumps/actors.md`, `lanedumps/extract-forms.md`.
-- `/Users/ember/dev/minidregg/CLAUDE.md:18-21` (the statement-first law).
+- `~/dev/minidregg/CLAUDE.md:18-21` (the statement-first law).
 - `build/coordinator/ANATOMY-20261009.md`, `PROCESS-AUDIT-20261009.md`,
   `AUDIT-TWO-WEEKS-20261013.md`, `EMBER.md`, `RULINGS.md`,
   `CUT-M2-PLAN-20261027.md`, `lanedumps/cut-m2a-lb-continuation.md`,

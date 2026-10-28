@@ -1,11 +1,11 @@
 # Common brief for every acl2aiguide chapter lane
 
-You are an Opus chapter writer for `/Users/ember/dev/acl2aiguide`, a guide to
+You are an Opus chapter writer for `~/dev/acl2aiguide`, a guide to
 ACL2 for humans and for AIs. Read, in this order, before writing anything:
 
-1. `/Users/ember/dev/acl2aiguide/WRITING.md` (the rules; every claim has a
+1. `~/dev/acl2aiguide/WRITING.md` (the rules; every claim has a
    source line; no technique from memory).
-2. `/Users/ember/dev/acl2aiguide/README.md` and `sources.md`.
+2. `~/dev/acl2aiguide/README.md` and `sources.md`.
 3. Your lane brief (the file that pointed you here).
 4. The manual topics and the fn files your lane brief names, **whole**, before
    writing the section that uses them.
@@ -13,20 +13,20 @@ ACL2 for humans and for AIs. Read, in this order, before writing anything:
 ## The material and how to read it
 
 **The ACL2 manual (XDOC).** ACL2 8.7's manual source is
-`/Users/ember/tools/acl2-fn/acl2-8.7/books/system/doc/acl2-doc.lisp`
+`~/tools/acl2-fn/acl2-8.7/books/system/doc/acl2-doc.lisp`
 (175,049 lines; one `(defxdoc TOPIC ...)` per topic). To read a topic:
 
-    D=/Users/ember/tools/acl2-fn/acl2-8.7/books/system/doc/acl2-doc.lisp
+    D=~/tools/acl2-fn/acl2-8.7/books/system/doc/acl2-doc.lisp
     grep -n '^(defxdoc defabsstobj$' $D        # find the start line
     grep -n '^(defxdoc ' $D | awk -F: '$1 > START' | head -1   # the next topic = the end
     sed -n 'START,ENDp' $D
 
 or render it with the REPL (0.2 s startup; strip the colour codes):
 
-    printf ':doc defabsstobj\n' | /Users/ember/tools/acl2-fn/acl2-literal-4g-tls64k 2>&1 | sed 's/\x1b\[[0-9;]*m//g'
+    printf ':doc defabsstobj\n' | ~/tools/acl2-fn/acl2-literal-4g-tls64k 2>&1 | sed 's/\x1b\[[0-9;]*m//g'
 
 Community-book topics are `defxdoc` forms in the books themselves:
-`grep -rn '(defxdoc fgl$' /Users/ember/tools/acl2-fn/acl2-8.7/books/centaur/fgl/`.
+`grep -rn '(defxdoc fgl$' ~/tools/acl2-fn/acl2-8.7/books/centaur/fgl/`.
 `doc/practices.lisp` holds `best-practices`, `theory-management`,
 `conventional-normal-forms`, `finite-reasoning`, `working-with-packages`.
 Topic names you will need exist under these exact names in `acl2-doc.lisp`:
@@ -49,7 +49,7 @@ Topic names you will need exist under these exact names in `acl2-doc.lisp`:
 name with `grep -c '^(defxdoc NAME$'` before citing it; `loop$`, `apply$` and
 `checkpoint` topics exist under names you must look up.
 
-**The community books** are at `/Users/ember/tools/acl2-fn/acl2-8.7/books`.
+**The community books** are at `~/tools/acl2-fn/acl2-8.7/books`.
 Worth knowing: `demos/defabsstobj-example-{1,2,3,4-book,5}.lisp`,
 `demos/attach-stobj/`, `demos/stobj-table-examples.lisp`,
 `demos/swap-stobj-fields.lisp`, `demos/memoize-*.lisp`, `demos/loop-primer/`,
@@ -61,8 +61,8 @@ updater-independence}.lisp`, `centaur/fgl/{doc,top}.lisp`,
 `arithmetic-5/`, `std/lists/`, `tools/def-functional-instance.lisp`,
 `tools/flag.lisp`, `std/util/define.lisp`, `std/testing/must-fail.lisp`.
 
-**fn** is at `/Users/ember/dev/fn` (main worktree; read, never edit; use
-`git -C /Users/ember/dev/fn show origin/dev:PATH` for the pinned text and
+**fn** is at `~/dev/fn` (main worktree; read, never edit; use
+`git -C ~/dev/fn show origin/dev:PATH` for the pinned text and
 cite `@3bbfc4dca`). Its practice docs: `docs/proof-style.md` (912 lines:
 opaque records, export theory at book end, `:rule-classes nil` guard
 equalities, carried invariants, teeth as concrete witnesses, book layering,
@@ -108,10 +108,10 @@ every agent transcript on this machine (`cv search 'defabsstobj'`,
 ## Examples
 
 Every technique you describe gets a small book under
-`/Users/ember/dev/acl2aiguide/examples/<topic>/<name>.lisp` with a header
+`~/dev/acl2aiguide/examples/<topic>/<name>.lisp` with a header
 comment (what it shows; which chapter cites it). Certify it:
 
-    cd /Users/ember/dev/acl2aiguide && examples/certify.sh <topic>/<name>.lisp
+    cd ~/dev/acl2aiguide && examples/certify.sh <topic>/<name>.lisp
 
 That runs `cert.pl` with the laptop ACL2 under a machine-wide lock (one
 certification at a time; it waits for other lanes). A book must certify in
@@ -120,7 +120,7 @@ well under a minute and may `include-book` only the community books listed in
 `arithmetic-5/top`, `std/util/define`, `std/testing/must-fail`, `tools/flag`,
 ...). For a fast scratch loop, pipe forms into the REPL under a timeout:
 
-    timeout 120 /Users/ember/tools/acl2-fn/acl2-literal-4g-tls64k < scratch.lsp > out.txt 2>&1
+    timeout 120 ~/tools/acl2-fn/acl2-literal-4g-tls64k < scratch.lsp > out.txt 2>&1
 
 and read `out.txt` once; the REPL starts in 0.2 s, so batch many forms per
 run and never loop one form at a time. Keep scratch files under your own
@@ -165,7 +165,7 @@ does); do NOT touch another lane's files. Write only your own files.
 - No secrets in the repository (no keys, no tokens, no hostnames with
   credentials).
 - Disk pressure is a pause-and-tell condition, never a delete.
-- Do not edit anything under `/Users/ember/dev/fn`.
+- Do not edit anything under `~/dev/fn`.
 
 ## Reporting
 

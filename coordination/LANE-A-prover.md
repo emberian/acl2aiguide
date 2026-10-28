@@ -1,6 +1,6 @@
 # Lane A: the logic and the prover; rewriting, theories and books
 
-Read `/Users/ember/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
+Read `~/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
 
 ## Files you own
 

@@ -1,6 +1,6 @@
 # Lane C: high-performance software in ACL2; the process
 
-Read `/Users/ember/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
+Read `~/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
 
 ## Files you own
 
@@ -70,7 +70,7 @@ already did.
 Statement-first: a keystone enters as a statement with its satisfiable
 premise, its teeth and its subject before proof work; "a wrong statement
 proved fast is the expensive failure" [minidregg CLAUDE.md law, quote it as
-`/Users/ember/dev/minidregg/CLAUDE.md`; fn docs/proofs.md "Shape of the
+`~/dev/minidregg/CLAUDE.md`; fn docs/proofs.md "Shape of the
 claims"; OWED.md top-level-theorems section]. The premise/teeth/satisfiable
 discipline, with the fn false-OB-2 story if `cv search 'OB-2'` finds it.
 What to prove early vs late (semantics-first: build the implementation,

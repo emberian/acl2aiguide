@@ -1,6 +1,6 @@
 # Lane D: fn-lessons, by wound
 
-Read `/Users/ember/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
+Read `~/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
 
 ## Files you own
 
@@ -19,8 +19,8 @@ size of the host it checked. Each lesson file has, in this order:
 
 1. **The wound**, in one paragraph, with the measurement (the number, the
    date, the box) and the fn path and sha that shows it (`[fn: PATH:LINE
-   @SHA]`; `origin/dev` is `3bbfc4dca`; use `git -C /Users/ember/dev/fn log
-   --all -S'<text>'` and `git -C /Users/ember/dev/fn show SHA:PATH` to pin an
+   @SHA]`; `origin/dev` is `3bbfc4dca`; use `git -C ~/dev/fn log
+   --all -S'<text>'` and `git -C ~/dev/fn show SHA:PATH` to pin an
    older sha when the wound is in history, and `cv search` / `cv show` for
    the episode, cited `[cv: ID#N]`).
 2. **What was done about it** in fn (the tool, the macro, the ruling, the
@@ -42,14 +42,14 @@ Read first, whole: `ANATOMY-20261009.md` (the three sins),
 drain, collapse", "Assurance", "Process and cycle time", "Coordination and
 seats", `CUT-M2-PLAN-20261027.md`, `lanedumps/cut-m2a-lb-continuation.md`,
 and fn `docs/proof-style.md` and `docs/proofs.md` (both carry measured
-wounds with dates). All under `/Users/ember/dev/fn/build/coordinator/` and
-`/Users/ember/dev/fn/docs/`.
+wounds with dates). All under `~/dev/fn/build/coordinator/` and
+`~/dev/fn/docs/`.
 
 - Octet lists at runtime: asked for six times (REPRESENTATION-HISTORY
   table), landed as twins beside the list paths, `fnn-octet-list` calls
   130 to 263; the law that produced twins (D27's "correspondence theorem to
   the list definition at every boundary") vs the law that would not have
-  ("the derived path is the ONLY path", `/Users/ember/dev/minidregg/CLAUDE.md`).
+  ("the derived path is the ONLY path", `~/dev/minidregg/CLAUDE.md`).
 - Conceptual multiplication: ladders of rungs (history 120 books, bp-node
   60, catalog 28 + 4.5K + 3.3K lines, three msgid representations), 766
   functions car/cdr-walking octet data, a 3 MiB POST changing

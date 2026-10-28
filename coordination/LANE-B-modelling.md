@@ -1,6 +1,6 @@
 # Lane B: modelling
 
-Read `/Users/ember/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
+Read `~/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
 
 ## Files you own
 
@@ -41,7 +41,7 @@ fields, hash-table fields `:type (hash-table ...)`), the single-threadedness
 syntactic restrictions, `stobj` recognizer and creator, `:inline`,
 `:non-memoizable`, `:congruent-to`, stobj-table; `with-local-stobj` and the
 exact shape of what the body returns (the lane continuation's hard-won
-note: `/Users/ember/dev/fn/build/coordinator/lanedumps/cut-m2a-lb-continuation.md`
+note: `~/dev/fn/build/coordinator/lanedumps/cut-m2a-lb-continuation.md`
 "How to run", last bullets); `stobj-let` and nested stobjs; `swap-stobjs`;
 `defabsstobj`: the foundation stobj, `:logic`/`:exec` pairs, the
 correspondence function `:corr-fn`, the generated obligations exactly as

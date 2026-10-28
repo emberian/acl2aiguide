@@ -1,6 +1,6 @@
 # Lane F: part 2 for AIs, the terse chapters
 
-Read `/Users/ember/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
+Read `~/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
 
 ## Files you own
 

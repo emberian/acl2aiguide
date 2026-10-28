@@ -1,6 +1,6 @@
 # acl2aiguide: continuation (present state; rewritten whole)
 
-Coordinator brief: `/Users/ember/dev/fn/build/coordinator/briefs/ACL2AIGUIDE-20261028.md`.
+Coordinator brief: `~/dev/fn/build/coordinator/briefs/ACL2AIGUIDE-20261028.md`.
 Lane briefs: `coordination/COMMON.md` (every lane), `coordination/LANE-*.md`.
 Rules: `WRITING.md`. Toolchain: `sources.md` "Toolchain".
 

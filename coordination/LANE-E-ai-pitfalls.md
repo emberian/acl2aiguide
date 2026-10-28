@@ -1,6 +1,6 @@
 # Lane E: part 2 for AIs, the pitfalls-first checklist and the form shapes
 
-Read `/Users/ember/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
+Read `~/dev/acl2aiguide/coordination/COMMON.md` first and obey it.
 
 ## Files you own
 
@@ -32,7 +32,7 @@ sessions), read how it looked in ACL2's output, read how it was fixed, and
 then read the manual topic that explains the mechanism and cite it. A
 pitfall with one episode is an anecdote; a pitfall with no manual
 explanation is a rumour. The fn lane continuation
-`/Users/ember/dev/fn/build/coordinator/lanedumps/cut-m2a-lb-continuation.md`
+`~/dev/fn/build/coordinator/lanedumps/cut-m2a-lb-continuation.md`
 ("How to run": with-local-stobj's shape; the REPL refusing to redefine)
 and fn `docs/proof-style.md` sections 9.1 to 9.3 are three pitfalls
 already written up with measurements; use them.

@@ -72,6 +72,14 @@ Cite a chapter by path and heading, e.g. `acl2aiguide humans/03-modelling-data.m
 "Abstract stobjs"`. Cite an example by its path. The guide's own sources are
 in `sources.md`; cite those directly when the claim is theirs.
 
+## Paths
+
+This repository is public. Paths in it are written relative to the author's
+home (`~/dev/fn`, `~/tools/acl2-fn`, `~/paperbin`); fn citations carry a sha
+and are resolvable against that repository's history; transcript citations
+(`[cv: ...]`) refer to private agent transcripts and are provenance, not
+something a reader can open.
+
 ## Toolchain
 
 ACL2 8.7 on SBCL 2.6.8 (`~/tools/acl2-fn/acl2-literal-4g-tls64k`, built by

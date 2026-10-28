@@ -50,7 +50,7 @@ keystone enters as a `Prop` with its ATLAS fields (satisfiable + teeth +
 premise-inhabitation) BEFORE proof work starts. A wrong statement proved fast
 is the expensive failure. Only a lane's top-level theorem must be
 non-vacuous; it gets an adversarial audit of its statement"
-[/Users/ember/dev/minidregg/CLAUDE.md:18-21]. fn's process audit reached
+[~/dev/minidregg/CLAUDE.md:18-21]. fn's process audit reached
 the same rule from its own numbers: "a packet is 'approved to prove' only
 after each keystone has run an ACL2 `test?` counterexample search and
 carries its satisfiable and teeth witnesses" [fn:
