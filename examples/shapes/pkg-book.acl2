@@ -1,0 +1,7 @@
+; examples/shapes/pkg-book.acl2 -- cert.pl runs this before certify-book
+; for pkg-book.lisp (a FOO.acl2 file is used for FOO.lisp); the defpkg
+; becomes part of the book's portcullis.
+(in-package "ACL2")
+(defpkg "SHAPES"
+  (union-eq *acl2-exports*
+            *common-lisp-symbols-from-main-lisp-package*))

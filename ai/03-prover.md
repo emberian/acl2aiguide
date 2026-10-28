@@ -602,8 +602,11 @@ rule gets none: use `syntaxp` (6.3).
 - `:linear`: an inequality stored under its maximal terms, relieved by
   rewriting; a bound linear arithmetic cannot finish with the functions closed
   closes once the same fact is `:rule-classes :linear`
-  [:doc linear] [example: examples/rewriting/linear.lisp]. Pitfall: a `:linear` rule with `:trigger-terms` and a `:rewrite` class on one
-  conclusion crashed SBCL; split it [fn: docs/proof-style.md:911 @3bbfc4dca].
+  [:doc linear] [example: examples/rewriting/linear.lisp]. Pitfall: a `:linear` rule with `:trigger-terms` whose conclusion is not an
+  inequality (`(integerp (f x))`) is admitted and crashes SBCL (memory fault)
+  at first use; the usual refusal is skipped "when `:trigger-terms` is
+  supplied explicitly" [:doc linear] [measured: humans/02 section 2.6.3]. A
+  type fact is a `:type-prescription` rule, never a `:linear` one.
 - A type goal like `(INTEGERP (+ AMT (BAL ...)))` is settled by type reasoning,
   which never calls the rewriter: a rewrite rule concluding `(integerp ...)`
   does not reach it; use `:type-prescription` + `:linear`

@@ -772,7 +772,10 @@ lemmas (lane shared-books). Prefer the small lemmas for fixed moduli"
 crashed the host: "A `:linear` rule with `:trigger-terms` and a `:rewrite`
 class on the same conclusion crashed SBCL with a memory fault (lane
 shared-books, 2026-09-28). Split it into a type rule and a plain `:linear`
-rule" [fn: docs/proof-style.md:911 @3bbfc4dca].
+rule" [fn: docs/proof-style.md:911 @3bbfc4dca]. The crash needs no
+`:rewrite` twin: a `:linear` rule with `:trigger-terms` whose conclusion is
+not an inequality is admitted and faults at first use (chapter 2, section
+2.6.3, measured).
 
 ### The mechanism
 

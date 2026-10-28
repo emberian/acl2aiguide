@@ -529,7 +529,18 @@ rule [example: examples/rewriting/linear.lisp].
 fn's note from its shared-books lane: "A `:linear` rule with
 `:trigger-terms` and a `:rewrite` class on the same conclusion crashed SBCL
 with a memory fault ... Split it into a type rule and a plain `:linear` rule"
-[fn: docs/proof-style.md:911 @3bbfc4dca].
+[fn: docs/proof-style.md:911 @3bbfc4dca]. The `:rewrite` twin is not the
+cause. A `:linear` rule with `:trigger-terms` whose conclusion is not an
+inequality is admitted and crashes SBCL at its first use, with no other rule
+class present: `(defthm r1 (integerp (f x)) :rule-classes ((:linear
+:trigger-terms ((f x)))))` over a constrained `f`, then `(thm (< -1 (f a)))`,
+printed `CORRUPTION WARNING in SBCL ... Memory fault` [measured: those two
+forms piped into the laptop REPL under `timeout 60`, ACL2 8.7 / SBCL 2.6.8,
+2026-10-28]. The manual says why the rule was admitted at all: linear rules
+whose conclusion yields no inequality are refused, "except when
+`:trigger-terms` is supplied explicitly by the user" [:doc linear]. A
+`:linear` conclusion is an inequality; a type fact is a `:type-prescription`
+rule (`ai/00-pitfalls-first.md`, pitfall 6).
 
 ### 2.6.4 `:definition`
 

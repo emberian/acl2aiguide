@@ -69,6 +69,11 @@ programming-with-state, set-verify-guards-eagerness, state, stobj,
 stobj-attachment-restrictions, stobj-table, swap-stobjs, sys-call, the,
 unmemoize, unsigned-byte-p, verify-guards, with-local-stobj.
 
+Cited by `ai/00`..`ai/02` (beyond the above): acl2-doc, args,
+book-hash-mismatch, doc, embedded-event-form, ld-error-action,
+ld-pre-eval-print, pc, set-inhibit-output-lst, uncertified-books,
+with-guard-checking-event.
+
 Cited by `ai/03`..`ai/06` (beyond the humans chapters they condense):
 acl2-customization, ld-redefinition-action, set-match-free-error.
 
@@ -96,6 +101,8 @@ with-local-stobj.
   `std/io/file-measure.lisp`, `std/util/defaggregate.lisp:47-55`,
   `std/util/define.lisp` (71-92, 216-220), `std/util/returnspecs.lisp:36-46`,
   `tools/def-functional-instance.lisp:34-56`.
+- `build/doc.lisp:673` (the default certify command), `std/testing/must-fail.lisp:17`
+  (ai/00..02).
 - `kestrel/c/atc/doc.lisp` (316-320, 328, 375-420, 1536-1617),
   `kestrel/c/atc/tutorial.lisp`, `kestrel/c/atc/tests/{checksum,loops}.lisp`,
   `tests/checksum-test.c`, `tests/compile.sh`; `kestrel/apt/doc.lisp:68-85`,
@@ -187,6 +194,11 @@ with-local-stobj.
   and its 35 obligations (humans/03).
 - `ac5fb887#20`: `with-local-stobj` of an attachable stobj in compiled code
   making certification illegal (humans/03).
+- ai/00..02: 118 transcript citations, listed in place in the chapters
+  (sessions `01a0b43d`, `01a0c2bc`, `01a0f057`, `01a0f3b3`, `01a11dcf`,
+  `01a1311e`, `01a132b1`, `01a1331b`, `01a13b1a`, `01a13b94`, `8d4521d3`,
+  `b3f4abb5`, and 60 `agent-*` sub-agent transcripts); each was checked
+  against the transcript text by the lane that cited it.
 - fn-lessons/: `35f3668a#1311`, `#1377`, `#1466`; `905fe751#2886`, `#4541`;
   `9627d694#2912`; `adb603dc#976`; `be1e9dcf#883`, `#2198`, `#4275`, `#6393`
   (ember's words, as EMBER.md cites them); `ad44eec2#263` (the false OB-2).
@@ -195,6 +207,9 @@ with-local-stobj.
 
 ## Measurements
 
+- The `:linear` memory fault (humans/02 2.6.3, ai/00 pitfall 6): a `:linear`
+  rule with `:trigger-terms` and a non-inequality conclusion, admitted, faults
+  SBCL at first use (laptop, ACL2 8.7 / SBCL 2.6.8, 2026-10-28).
 - The book-hash question (humans/05 5.9): a comment-only edit to a certified
   book includes with no warning under `ACL2_BOOK_HASH_ALISTP=NIL`; a body edit
   is refused with a book-hash mismatch (laptop, ACL2 8.7, 2026-10-28).

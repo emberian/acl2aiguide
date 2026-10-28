@@ -60,8 +60,16 @@ under `examples/` certifies on a laptop ACL2.
 
 ### Part 2: for AIs (`ai/`)
 
-- `ai/00-pitfalls-first.md`, `ai/01-form-shapes.md`,
-  `ai/02-reading-the-manual.md`: (landing)
+- `ai/00-pitfalls-first.md`: the 20 ways agents lost time in ACL2, ranked
+  by cost from the transcripts; each with ACL2's own output, the mechanism
+  from the manual, the fix as a form, and the episodes.
+- `ai/01-form-shapes.md`: forms to copy, each certified in `examples/shapes`:
+  `defun`, guards, rule classes, hints, `encapsulate` with functional
+  instances, stobjs, `stobj-let`, `defabsstobj`, `mbe`, `memoize`, teeth,
+  includes, the `.acl2` portcullis, `cert.pl`, a REPL driver.
+- `ai/02-reading-the-manual.md`: XDOC from a shell, which REPL command answers
+  which question, ACL2 as one batched session under `timeout`, the batching
+  rule, what a certificate covers.
 - `ai/03-prover.md`: reading a failed proof, every hint with its pitfall,
   induction, step and time limits, rule classes and why rules do not fire,
   loops, theories and the export boundary, books and certification,

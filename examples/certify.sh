@@ -12,7 +12,9 @@ set -u
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 : "${ACL2:=$HOME/tools/acl2-fn/acl2-literal-4g-tls64k}"
 : "${ACL2_SYSTEM_BOOKS:=$HOME/tools/acl2-fn/acl2-8.7/books}"
-export ACL2 ACL2_SYSTEM_BOOKS
+# Content hashes, not write dates, in certificates (fn's rule; :doc book-hash).
+: "${ACL2_BOOK_HASH_ALISTP:=NIL}"
+export ACL2 ACL2_SYSTEM_BOOKS ACL2_BOOK_HASH_ALISTP
 lock="$here/.cert.lock"
 i=0
 until mkdir "$lock" 2>/dev/null; do
