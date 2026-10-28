@@ -40,6 +40,15 @@ under `examples/` certifies on a laptop ACL2.
   a book exports (`encapsulate`, functional instances, `defattach`), books and
   certification (`cert.pl`, book hashes, provisional certification,
   `make-event`, `must-fail`), with fn as the worked example.
+- `humans/05-high-performance.md`: what runs when (`*1*` vs raw, `mbe`,
+  `:program`), fixed-size stobjs, finding the consing (`time$`,
+  `profile`/`memsum`), fn's octet-list lesson, group commit and one executor
+  loop as modelled state, TigerStyle translated, ATC/APT against fn's
+  extraction, and what generating macros buy and cost.
+- `humans/06-process.md`: statement first and teeth, what to prove early and
+  late, keeping checkers and ledgers small, sizing proofs (steps ratchet,
+  800-line split, include cost, one world), honest skip-proofs, running ACL2
+  from an agent, and fn's process audit as rules.
 
 ### Part 2: for AIs (`ai/`)
 

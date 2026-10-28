@@ -20,7 +20,10 @@ These rules bind every file under `humans/`, `ai/`, `fn-lessons/` and
      number when the claim is about one form.
    - `[fn: PATH:LINE @SHA]` — a file in the fn repository at a pinned sha
      (`[fn: books/catalog.lisp:17 @3bbfc4dca]`). Paths are relative to the fn
-     root; the sha is `origin/dev` unless the text says otherwise.
+     root; the sha is `origin/dev` unless the text says otherwise. fn's
+     `build/coordinator/*` documents are untracked (`build/` is ignored), so
+     they are cited `[fn: build/coordinator/FILE:LINE @worktree]`, read in
+     fn's main worktree on the date the chapter states.
    - `[paper: FILENAME]` — a file in `~/paperbin`, with a page or section.
    - `[cv: SESSION#INDEX]` — a transcript message, as `cv show SESSION
      --around INDEX` finds it.

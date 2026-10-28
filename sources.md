@@ -60,11 +60,22 @@ theory-invariant, theory-management, type-prescription, type-reasoning, ubt,
 using-enabled-rules, with-prover-step-limit, with-prover-time-limit,
 working-with-packages, xargs, |About Types|, |Common Lisp|.
 
+Cited by `humans/05` and `humans/06` (beyond the above): assert$, declare,
+defstobj, defstobj-element-type, defun-inline, efficiency, evaluation,
+guards-and-evaluation, hons-summary, mbt, note-6-2, profile, the, time$,
+with-local-stobj.
+
 ## Community books (`books/PATH`)
 
 - `build/doc.lisp` (cert.pl: lines 34, 297, 558), `doc/practices.lisp:511`
   (rule naming), `std/testing/must-fail.lisp:17`,
   `std/testing/must-succeed.lisp:17`, `tools/flag.lisp:93` (humans/01, 02).
+- `kestrel/c/atc/doc.lisp` (316-320, 328, 375-420, 1536-1617),
+  `kestrel/c/atc/tutorial.lisp`, `kestrel/c/atc/tests/{checksum,loops}.lisp`,
+  `tests/checksum-test.c`, `tests/compile.sh`; `kestrel/apt/doc.lisp:68-85`,
+  `isodata-doc.lisp`, `expdata-doc.lisp`, `parteval-doc.lisp`,
+  `finite-difference.lisp`, `casesplit-doc.lisp`, `lift-iso-doc.lisp`,
+  `tailrec-doc.lisp` (humans/05).
 
 ## fn books and documents (`PATH @SHA`, sha of `origin/dev` unless stated)
 
@@ -73,6 +84,22 @@ working-with-packages, xargs, |About Types|, |Common Lisp|.
   `docs/implementation.md`, `docs/resource-contract.md`.
 - `books/store-log.lisp:368`, `books/store-log-stream.lisp:335` (the
   load-bearing rule pair, humans/02).
+- humans/05, 06: `AGENTS.md` (20-37), `OWED.md` (3-21),
+  `specs/storage.md` (443-457, 563-572, 1786-1791), `books/msgid-linear-exec.lisp`
+  (7-36, 146-153, 244-263), `books/store-log.lisp` (9-13, 52-53, 102-108),
+  `books/owner-log-route.lisp:18-25`, `books/owner-commit-pipeline.lisp:1-22`,
+  `books/runtime-contract.lisp:12-111`, `books/def-loop.lisp` (5-128),
+  `books/def-representation.lisp` (6-78), `books/definterface.lisp:3-41`,
+  `books/defkeystone.lisp:48-63`, `books/protocol-table.lisp` (4-80, 300-302,
+  395-415), `host/native/owner.lisp:549-553`, `tools/certify_books.py:108`,
+  `tools/proof_repl.py:4-10`, commit `9d5a3f99b` (the checker deletions).
+- `@worktree` (untracked coordinator documents, read 2026-10-28):
+  `ANATOMY-20261009.md`, `AUDIT-TWO-WEEKS-20261013.md`,
+  `PROCESS-AUDIT-20261009.md`, `REPRESENTATION-HISTORY-20261028.md`,
+  `EMBER.md`, `RUNTIME-MODEL-DRAFT-20261009.md`, `CUT-M2-PLAN-20261027.md`,
+  `RULINGS.md`, `lanedumps/cut-m2a-lb-continuation.md`,
+  `lanedumps/actors.md`, `lanedumps/extract-forms.md`.
+- `/Users/ember/dev/minidregg/CLAUDE.md:18-21` (the statement-first law).
 - `build/coordinator/ANATOMY-20261009.md`, `PROCESS-AUDIT-20261009.md`,
   `AUDIT-TWO-WEEKS-20261013.md`, `EMBER.md`, `RULINGS.md`,
   `CUT-M2-PLAN-20261027.md`, `lanedumps/cut-m2a-lb-continuation.md`,
@@ -80,12 +107,21 @@ working-with-packages, xargs, |About Types|, |Common Lisp|.
 
 ## Papers (`~/paperbin/FILENAME`)
 
-(filled as chapters land)
+- `tigerbeetle2026-tiger-style.md` ("Safety"; byte-identical to TigerBeetle's
+  `docs/TIGER_STYLE.md` fetched 2026-10-28), `tigerbeetle2026-architecture.md`
+  ("Single Thread", "Static Memory Allocation"),
+  `tigerbeetle2026-concepts-performance.md` ("Batching, Batching, Batching"),
+  `tigerbeetle2026-internals-vopr.md` (lines 29-40, 50-54) (humans/05).
+- `coglio2022-acl2-atc-proof-generating-c-code-generator.txt` (abstract,
+  section 1), `coglio2020-acl2-apt-isomorphic-data-type-transformations.txt`
+  (humans/05).
 
 ## Transcripts (`cv show SESSION --around INDEX`)
 
 - `a97d40c2#529`: fn rule-hygiene lane's probe naming the `fn-lg-slice` /
   `fn-lgw-slice-is-take` loop runes (humans/02).
+- `b54b6026#1061`: the minidregg (Lean) statement approved on polarity alone
+  and refuted by its satisfiable witness (humans/06).
 
 ## Measurements
 
