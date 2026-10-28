@@ -6,17 +6,15 @@ Rules: `WRITING.md`. Toolchain: `sources.md` "Toolchain".
 
 ## State
 
-- Skeleton committed (`4d297e4`): README, WRITING, sources, examples
-  harness (`examples/certify.sh`, mkdir lock, `cert.pl` with the laptop
-  ACL2 8.7), briefs A/B/C.
-- Wave 1 running: Lane A (humans/01, 02 + examples/prover, rewriting,
-  books), Lane B (humans/03, 04 + examples/modelling, stobjs, systems),
-  Lane C (humans/05, 06 + examples/performance, process). Opus, spawned
-  2026-10-28 ~01:05 EDT.
-- Wave 2 briefs written, not launched: Lane D (`fn-lessons/`), Lane E
-  (`ai/00`, `01`, `02` + examples/shapes). Lane F (`ai/03`..`06`: the terse
-  twins of humans/01..06, written from part 1 once it exists) is not yet
-  briefed.
+- Merged: Lane A (`ce2c34b`: humans/01, 02; 34 examples), Lane C
+  (`8ccff03`: humans/05, 06; 8 examples). certify.sh's lock bug (exec
+  defeated the trap) fixed in `ce2c34b`.
+- Running (Opus, three at a time): Lane B (humans/03, 04 +
+  examples/modelling, stobjs, systems; spawned ~01:05 EDT), Lane D
+  (fn-lessons/; ~02:00), Lane E (ai/00, 01, 02 + examples/shapes; ~02:55).
+- Not launched: Lane F (ai/03..06, brief at coordination/LANE-F-ai-chapters.md;
+  needs humans/03, 04 merged first).
+- Part 1 READY to main is owed once Lane B merges.
 
 ## Next
 
