@@ -64,7 +64,16 @@ under `examples/` certifies on a laptop ACL2.
 
 ### fn lessons (`fn-lessons/`)
 
-(lessons are listed here as they land)
+`fn-lessons/README.md` introduces fn and lists the 23 lessons, one wound
+each (the wound with its measurement and path, what fn did, the rule and the
+ACL2 mechanism it rests on, the shape to copy): octet lists landed as twins;
+conceptual multiplication; refining through the old foundation; `defabsstobj`
+by hand; the host decides; the apparatus; certified but unreached;
+whole-state recognizers; exported internals; the `Time:` line and the `Goal`
+theory; step-limited probes; library weight; the certificate cache; reading
+green; triage one layer per run; local stobjs and the REPL; wrong-depth
+walks; the twin forest; foreground waits and censuses; proof first; the crash
+model; `def-loop`; teeth. Six certified shapes under `examples/fn-lessons/`.
 
 ## How to cite it
 

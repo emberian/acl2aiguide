@@ -69,6 +69,9 @@ programming-with-state, set-verify-guards-eagerness, state, stobj,
 stobj-attachment-restrictions, stobj-table, swap-stobjs, sys-call, the,
 unmemoize, unsigned-byte-p, verify-guards, with-local-stobj.
 
+Cited by `fn-lessons/` (beyond the above): defmacro, ld,
+ld-redefinition-action, loop$, table, top-level, verify-termination.
+
 Cited by `humans/05` and `humans/06` (beyond the above): assert$, declare,
 defstobj, defstobj-element-type, defun-inline, efficiency, evaluation,
 guards-and-evaluation, hons-summary, mbt, note-6-2, profile, the, time$,
@@ -118,6 +121,13 @@ with-local-stobj.
   124-127, 830-850), `books/defkeystone.lisp` (13-42, 48-51, 124-133,
   148-150), `books/runtime-contract.lisp` (1-15, 62-65, 89-91, 98-111),
   `OWED.md:11-21`; `@worktree`: `STRATEGY-20261006.md` (266-267).
+- fn-lessons/: `host/native/io.lisp:264-265`, `tools/list_codec_baseline.json`,
+  `books/catalog.lisp:2038,4633 @4e56f2d01` (the hand-written obligation
+  block of 2026-10-01), `books/def-loop.lisp:170-172`,
+  `books/runtime-contract.lisp:3-34`, `specs/crash-model-v2.md` (27-84,
+  710-724, 1921-1990, 2086-2094, 2114); `@worktree`:
+  `scholar-proof-engineering-2026-10-01.md` (the 285 obligations / 5,800
+  lines figure and the def-loop counts).
 - humans/05, 06: `AGENTS.md` (20-37), `OWED.md` (3-21),
   `specs/storage.md` (443-457, 563-572, 1786-1791), `books/msgid-linear-exec.lisp`
   (7-36, 146-153, 244-263), `books/store-log.lisp` (9-13, 52-53, 102-108),
@@ -152,6 +162,9 @@ with-local-stobj.
   `sigurbjarnarson2016-yggdrasil-push-button-crash-refinement.txt`,
   `chajed2019-perennial-crash-safety-concurrency.txt`,
   `mohan2018-crashmonkey-bounded-black-box-crash-testing.txt`.
+- fn-lessons/: `bairavasundaram2008-analysis-data-corruption-storage-stack.txt`
+  (section 2.3), `README-fn2-20261028.md` (the fn2 reading list's "Crash
+  model: what ours misses, by paper" table, rows 1-22).
 - `tigerbeetle2026-tiger-style.md` ("Safety"; byte-identical to TigerBeetle's
   `docs/TIGER_STYLE.md` fetched 2026-10-28), `tigerbeetle2026-architecture.md`
   ("Single Thread", "Static Memory Allocation"),
@@ -169,6 +182,9 @@ with-local-stobj.
   and its 35 obligations (humans/03).
 - `ac5fb887#20`: `with-local-stobj` of an attachable stobj in compiled code
   making certification illegal (humans/03).
+- fn-lessons/: `35f3668a#1311`, `#1377`, `#1466`; `905fe751#2886`, `#4541`;
+  `9627d694#2912`; `adb603dc#976`; `be1e9dcf#883`, `#2198`, `#4275`, `#6393`
+  (ember's words, as EMBER.md cites them); `ad44eec2#263` (the false OB-2).
 - `b54b6026#1061`: the minidregg (Lean) statement approved on polarity alone
   and refuted by its satisfiable witness (humans/06).
 
