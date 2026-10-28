@@ -6,15 +6,15 @@ Rules: `WRITING.md`. Toolchain: `sources.md` "Toolchain".
 
 ## State
 
-- Merged: Lane A (`ce2c34b`: humans/01, 02; 34 examples), Lane C
-  (`8ccff03`: humans/05, 06; 8 examples). certify.sh's lock bug (exec
-  defeated the trap) fixed in `ce2c34b`.
-- Running (Opus, three at a time): Lane B (humans/03, 04 +
-  examples/modelling, stobjs, systems; spawned ~01:05 EDT), Lane D
-  (fn-lessons/; ~02:00), Lane E (ai/00, 01, 02 + examples/shapes; ~02:55).
-- Not launched: Lane F (ai/03..06, brief at coordination/LANE-F-ai-chapters.md;
-  needs humans/03, 04 merged first).
-- Part 1 READY to main is owed once Lane B merges.
+- MILESTONE: part 1 first complete draft (humans/01..06, 67 certified
+  examples) merged at `985c188`. Lanes A (`ce2c34b`), C (`8ccff03`), B
+  (`985c188`) reviewed against the manual (every [:doc] topic grepped in
+  acl2-doc.lisp; quoted phrases spot-checked; papers checked in ~/paperbin).
+- Running (Opus, three at a time): Lane D (fn-lessons/; spawned ~02:00
+  EDT), Lane E (ai/00, 01, 02 + examples/shapes; ~02:55), Lane F (ai/03..06;
+  ~03:50).
+- Owed: the "examples certified" milestone = `make -C examples clean && make
+  -C examples` green from clean after every lane's examples are in.
 
 ## Next
 
