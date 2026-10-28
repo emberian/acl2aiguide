@@ -29,6 +29,9 @@ These rules bind every file under `humans/`, `ai/`, `fn-lessons/` and
      --around INDEX` finds it.
    - `[example: examples/DIR/FILE.lisp]` — a book in this repository that
      **certified** with `examples/certify.sh` before the citation was written.
+   - `[file: PATH:LINE]` — a document on this machine that is neither fn
+     nor a paper (`[file: ~/dev/minidregg/CLAUDE.md:18-21]`), quoted, since
+     a reader cannot open it.
    - `[measured: COMMAND]` — a number this guide's author measured, with the
      command that produced it, the ACL2 version, and the machine.
 3. **A claim with none of these is deleted**, not hedged.

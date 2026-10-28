@@ -60,7 +60,27 @@ under `examples/` certifies on a laptop ACL2.
 
 ### Part 2: for AIs (`ai/`)
 
-(chapters are listed here as they land)
+- `ai/00-pitfalls-first.md`, `ai/01-form-shapes.md`,
+  `ai/02-reading-the-manual.md`: (landing)
+- `ai/03-prover.md`: reading a failed proof, every hint with its pitfall,
+  induction, step and time limits, rule classes and why rules do not fire,
+  loops, theories and the export boundary, books and certification,
+  `skip-proofs`, `defaxiom` and trust tags.
+- `ai/04-modelling.md`: opaque records, guards, `mbe` loop twins, `defexec`,
+  fixed width, stobjs (concrete, local, nested, abstract with generated
+  obligations, attachable), memoization; then I/O as data, crash models,
+  assumptions discharged by functional instance, step invariants,
+  refinement, generic layers, teeth.
+- `ai/05-performance.md`: which body runs when, static allocation in
+  fixed-size stobjs, finding the consing, one representation with no twins,
+  batching and one executor loop as modelled state, TigerStyle translated,
+  ATC/APT against extraction, what generators cost.
+- `ai/06-process-and-repl.md`: statement first and teeth, evidence and
+  ledgers, sizing proofs, honest skip-proofs; then running ACL2 from an
+  agent: one session, batched driver files read once, a time limit on every
+  form, restart after an edit, certify before reporting, what a certificate
+  covers, long work in the background with a PID file, event reports and
+  resuming the agent that holds the context.
 
 ### fn lessons (`fn-lessons/`)
 

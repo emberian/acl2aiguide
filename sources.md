@@ -69,6 +69,9 @@ programming-with-state, set-verify-guards-eagerness, state, stobj,
 stobj-attachment-restrictions, stobj-table, swap-stobjs, sys-call, the,
 unmemoize, unsigned-byte-p, verify-guards, with-local-stobj.
 
+Cited by `ai/03`..`ai/06` (beyond the humans chapters they condense):
+acl2-customization, ld-redefinition-action, set-match-free-error.
+
 Cited by `fn-lessons/` (beyond the above): defmacro, ld,
 ld-redefinition-action, loop$, table, top-level, verify-termination.
 
@@ -121,6 +124,8 @@ with-local-stobj.
   124-127, 830-850), `books/defkeystone.lisp` (13-42, 48-51, 124-133,
   148-150), `books/runtime-contract.lisp` (1-15, 62-65, 89-91, 98-111),
   `OWED.md:11-21`; `@worktree`: `STRATEGY-20261006.md` (266-267).
+- ai/06: `docs/proofs.md` (636-645), `@worktree` `EMBER.md:392`,
+  `lanedumps/cut-m2a-lb-continuation.md:22`.
 - fn-lessons/: `host/native/io.lisp:264-265`, `tools/list_codec_baseline.json`,
   `books/catalog.lisp:2038,4633 @4e56f2d01` (the hand-written obligation
   block of 2026-10-01), `books/def-loop.lisp:170-172`,
@@ -189,6 +194,10 @@ with-local-stobj.
   and refuted by its satisfiable witness (humans/06).
 
 ## Measurements
+
+- The book-hash question (humans/05 5.9): a comment-only edit to a certified
+  book includes with no warning under `ACL2_BOOK_HASH_ALISTP=NIL`; a body edit
+  is refused with a book-hash mismatch (laptop, ACL2 8.7, 2026-10-28).
 
 Each `[measured: ...]` in a chapter names its form; all were taken on the
 laptop with ACL2 8.7 / SBCL 2.6.8 from the forms of the cited example book.

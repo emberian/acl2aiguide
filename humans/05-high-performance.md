@@ -296,8 +296,9 @@ Three options of `defstobj` are performance options.
   factor of at least 2"; the cost is that "redefinition may not work as
   expected" and that tracing "will not show their calls" [:doc defstobj].
 - `:element-type t` changes the raw array's declared element type. The
-  manual reports it measured: with SBCL, 100,000,000 reads took 0.23 s with
-  it and 0.21 s without, and writes 0.24 s and 0.25 s, on a 2019 MacBook Pro
+  manual reports it measured on a `double-float` array of 10^8 elements:
+  with SBCL, 100,000,000 reads took 0.23 s with it and 0.21 s without, and
+  writes 0.24 s and 0.25 s, on a 2019 MacBook Pro
   [:doc defstobj-element-type]. It is a CCL option more than an SBCL one.
 - `:non-executable t` "avoids actually creating a global stobj", for a
   stobj used only through `with-local-stobj` or as the type of another
@@ -1200,8 +1201,16 @@ actually finish the project" [fn: build/coordinator/EMBER.md:222-226
   dependents, `books/defrecord.lisp` has 1192 of 1370 [fn:
   docs/proof-style.md:459-462 @3bbfc4dca]. (The same document says a
   comment edit "recertifies nothing" because the hash is of forms, not bytes
-  [fn: docs/proof-style.md:445-449 @3bbfc4dca]; the two sentences disagree,
-  and this guide has not measured which one holds for ACL2 8.7.)
+  [fn: docs/proof-style.md:445-449 @3bbfc4dca]; the two sentences disagree.
+  Measured: with `ACL2_BOOK_HASH_ALISTP=NIL`, a book certified, then edited
+  in a comment only, included with no warning; the same book edited in a
+  `defun` body was refused with `ACL2 Warning [Uncertified] ... lists the
+  book-hash of that book as 138601362. But its book-hash is ...`. The hash is
+  of the forms read, and the comment-edit sentence of `defrecord`'s header is
+  wrong [measured: a two-event book `hx.lisp` certified with `cert.pl`, then
+  `(include-book "hx")` after each edit, laptop ACL2 8.7 / SBCL 2.6.8,
+  2026-10-28]. `cert.pl` still rebuilds on a changed file date, which is a
+  different check.)
 - **Options accrete.** `def-loop`'s header, after its five shapes, documents
   `:keep-order`, `:base` for two shapes, `:loop-guard`, `:acc-fix`,
   `:stobjs`, `:loop-guard-hints`, `:rev` and `:thread`, and a list of loops

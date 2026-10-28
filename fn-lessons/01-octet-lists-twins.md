@@ -75,8 +75,8 @@ twin with its boundary theorem ... and lower its count"
   [fn: build/coordinator/REPRESENTATION-HISTORY-20261028.md:183-186 @worktree].
 - The successor project's law replaces D27's: "The derived path is the ONLY
   path. Nothing lands beside what it supersedes; everything replaces; delete
-  the twin" (`~/dev/minidregg/CLAUDE.md`, "The laws that bind every
-  session here").
+  the twin" [file: ~/dev/minidregg/CLAUDE.md, "The laws that bind every
+  session here"].
 
 ## The lesson
 
