@@ -1,0 +1,17 @@
+# ACL2 certification products
+*.cert
+*.cert.out
+*.cert.time
+*.fasl
+*.port
+*.pcert0
+*.pcert1
+*.acl2x
+*.lx64fsl
+*.dx64fsl
+*.o
+Makefile-tmp
+examples/.cert.lock/
+examples/.cert.lock
+*~
+.DS_Store
