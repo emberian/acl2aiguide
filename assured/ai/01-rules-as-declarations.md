@@ -1,7 +1,7 @@
 # assured/ai/01. TigerStyle's rules as declarations
 
 Load when generating storage, bounds, budgets, ownership transitions or
-machine dispatch. Terse twin of `assured/humans/01-rules-as-declarations.md`.
+machine dispatch. Companion: [Rules as declarations](../humans/01-rules-as-declarations.md).
 Use the forms in their cited example book's context. fn2 citations are
 pinned to `127f7b877`; coordinator citations retain the humans chapter's
 `@worktree` read date, 2026-10-29.
@@ -10,14 +10,14 @@ pinned to `127f7b877`; coordinator citations retain the humans chapter's
 
 | symptom | cause | go to section |
 | --- | --- | --- |
-| oversized write disappears; invalid read returns valid-looking zero | checks absorb errors inside accessors [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:26, 32, 39, 41 @worktree, read 2026-10-29] | 1 |
-| enum grows but consumers retain old bounds | handwritten counts [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:41 @worktree, read 2026-10-29] | 1 |
+| oversized write disappears; invalid read returns valid-looking zero | checks absorb errors inside accessors [fn: fn2/docs/design/REVIEW-SINS-20261028.md:26, 32, 39, 41 @66ff84f4a, read 2026-10-29] | 1 |
+| enum grows but consumers retain old bounds | handwritten counts [fn: fn2/docs/design/REVIEW-SINS-20261028.md:41 @66ff84f4a, read 2026-10-29] | 1 |
 | work step fails guard verification | caller lacks the budget fact [example: examples/assured/budget.lisp] | 2 |
-| profile advertises configuration that code fixes | hard-coded capacities [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:66 @worktree, read 2026-10-29] | 3 |
+| profile advertises configuration that code fixes | hard-coded capacities [fn: fn2/docs/design/REVIEW-SINS-20261028.md:66 @66ff84f4a, read 2026-10-29] | 3 |
 | old handle reaches reused storage | generation check missing; prove stale refusal [example: examples/assured/ownership.lisp] | 4 |
 | issue answers `:ok` but spends credit without enqueueing | absorbed refusal [example: examples/assured/named-stop.lisp] | 5 |
-| continuation depends on generator-private bindings | pasted code instead of function names [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:61 @worktree, read 2026-10-29] | 6 |
-| declaration exists but consumer still uses literals | generator does not inspect that consumer [fn: build/coordinator/fn2/DSL-METATHEORY.md:503, 513-520 @worktree, read 2026-10-29] | 7 |
+| continuation depends on generator-private bindings | pasted code instead of function names [fn: fn2/docs/design/REVIEW-SINS-20261028.md:61 @66ff84f4a, read 2026-10-29] | 6 |
+| declaration exists but consumer still uses literals | generator does not inspect that consumer [fn: fn2/docs/design/DSL-METATHEORY.md:503, 513-520 @66ff84f4a, read 2026-10-29] | 7 |
 
 ## 1. Put widths, row bounds and enum counts in the declaration
 
@@ -105,13 +105,13 @@ above without `must-fail`, ACL2 8.7, laptop, 2026-10-29].
   `machine-run-yield-keeps-head` [example: examples/assured/budget.lisp].
 - Do not call self-declared charges a CPU bound. fn2's review found
   step costs and refinement bounds typed as constants at their uses
-  [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:43, 87 @worktree, read 2026-10-29].
+  [fn: fn2/docs/design/REVIEW-SINS-20261028.md:43, 87 @66ff84f4a, read 2026-10-29].
 
 ## 3. Size at init; preserve shape through setters
 
 - Do not present fixed values as operator configuration. Size from the
   profile; fn2's review found profile fields constrained to hard-coded
-  values [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:66 @worktree,
+  values [fn: fn2/docs/design/REVIEW-SINS-20261028.md:66 @66ff84f4a,
 read 2026-10-29].
 - Keep resizing in generated init. Compose setter preservation theorems
   without reopening the table predicate [example: examples/assured/columns.lisp]:
@@ -156,7 +156,7 @@ read 2026-10-29].
   owed [example: examples/assured/ownership.lisp].
 - Track the borrower, not only a count. fn2's review found callers able
   to drop another machine's borrow and permit release under a live reader
-  [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:119 @worktree, read 2026-10-29].
+  [fn: fn2/docs/design/REVIEW-SINS-20261028.md:119 @66ff84f4a, read 2026-10-29].
 
 ## 5. Prove internal success or stop with a named reason
 
@@ -232,10 +232,10 @@ read 2026-10-29].
 - Move derivable consumer machinery into the generator. fn2's review
   found duplicated put-binding, preservation and snapshot/copy/diff
   generators beside the DSL
-  [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:50 @worktree, read 2026-10-29].
+  [fn: fn2/docs/design/REVIEW-SINS-20261028.md:50 @66ff84f4a, read 2026-10-29].
 - Inspect submitted forms for literal enum comparisons and positional
   access. Translated bodies inline constant values and erase that spelling
-  distinction [fn: build/coordinator/fn2/DSL-METATHEORY.md:503, 513-520 @worktree, read 2026-10-29].
+  distinction [fn: fn2/docs/design/DSL-METATHEORY.md:503, 513-520 @66ff84f4a, read 2026-10-29].
 - Keep the proposed check's limit explicit: "It checks submitted spelling
   and the common cases. A literal reached through a helper or an unexpanded
-  macro passes" [fn: build/coordinator/fn2/DSL-METATHEORY.md:522 @worktree, read 2026-10-29].
+  macro passes" [fn: fn2/docs/design/DSL-METATHEORY.md:522 @66ff84f4a, read 2026-10-29].

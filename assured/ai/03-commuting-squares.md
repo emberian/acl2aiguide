@@ -1,7 +1,7 @@
-# assured/ai/03. Every correctness claim as a commuting square
+# assured/ai/03. State what a change preserves with commuting squares
 
 Load when proving representation changes, summary adequacy, fused execution,
-or schedule swaps. Twin of `assured/humans/03-commuting-squares.md`.
+or schedule swaps. Companion: [Commuting squares](../humans/03-commuting-squares.md).
 Copy the events below in their cited books' contexts.
 
 ## 0. Pitfalls
@@ -9,14 +9,14 @@ Copy the events below in their cited books' contexts.
 | symptom | cause | go to section |
 | --- | --- | --- |
 | Equal answers diverge after one input | Observation equality is not step-closed [example: examples/transport/read-state-teeth.lisp] | 1 |
-| Correct steps start from unrelated states | Missing initialization or converter proof [fn: build/coordinator/fn2/COHERENCE.md:91 @worktree, read 2026-10-29] | 2 |
-| Component proofs miss a broken merge | Generators omit composite operations [fn: build/coordinator/fn2/COHERENCE.md:112 @worktree, read 2026-10-29] | 2 |
+| Correct steps start from unrelated states | Missing initialization or converter proof [fn: fn2/docs/design/COHERENCE.md:91 @66ff84f4a, read 2026-10-29] | 2 |
+| Component proofs miss a broken merge | Generators omit composite operations [fn: fn2/docs/design/COHERENCE.md:112 @66ff84f4a, read 2026-10-29] | 2 |
 | Functional instantiation fails | The substituted step obligation can be false [example: examples/transport/read-state-teeth.lisp] | 3 |
 | Different machines fail to commute | They share allocator state [example: examples/assured/diamond.lisp] | 4 |
-| Composition loses the contract | Relations, labels, or independence changed between pieces [fn: build/coordinator/fn2/COHERENCE.md:260 @worktree, read 2026-10-29] | 5 |
-| Convergence passes but reply bytes differ | Comparator forgets article numbers [fn: build/coordinator/fn2/COHERENCE.md:161 @worktree, read 2026-10-29] | 6 |
-| TRACE passes a shared handler bug | Both sides reuse handlers [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:87 @worktree, read 2026-10-29] | 7 |
-| Bounded checks become a universal claim | Future closure and coverage remain unproved [fn: build/coordinator/fn2/COHERENCE.md:750 @worktree, read 2026-10-29] | 8 |
+| Composition loses the contract | Relations, labels, or independence changed between pieces [fn: fn2/docs/design/COHERENCE.md:260 @66ff84f4a, read 2026-10-29] | 5 |
+| Convergence passes but reply bytes differ | Comparator forgets article numbers [fn: fn2/docs/design/COHERENCE.md:161 @66ff84f4a, read 2026-10-29] | 6 |
+| TRACE passes a shared handler bug | Both sides reuse handlers [fn: fn2/docs/design/REVIEW-SINS-20261028.md:87 @66ff84f4a, read 2026-10-29] | 7 |
+| Bounded checks become a universal claim | Future closure and coverage remain unproved [fn: fn2/docs/design/COHERENCE.md:750 @66ff84f4a, read 2026-10-29] | 8 |
 
 ## 1. Choose a relation that survives continuation
 
@@ -27,7 +27,7 @@ Copy the events below in their cited books' contexts.
 - Specify `(A, B, R, T, obs, kappa)`: representations, relation, transition
   language, observations, and declared observational loss. Identity loss
   preserves observations exactly.
-  [fn: build/coordinator/fn2/COHERENCE.md:25 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:25 @66ff84f4a, read 2026-10-29]
 - Allow a label to denote a target word, including the empty word. For partial
   transitions, supply a matching target execution when the source succeeds.
   [fn: fn2/meta/Fn2/Square.lean:172 @dddc32d34]
@@ -35,42 +35,42 @@ Copy the events below in their cited books' contexts.
 - Retain emitted history in semantic state or a monitor. Include refusals,
   effects, distinguishable action prefixes, and crash cuts in the contract;
   endpoint equality cannot recover an earlier differing reply.
-  [fn: build/coordinator/fn2/COHERENCE.md:231 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/COHERENCE.md:249 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:231 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:249 @66ff84f4a, read 2026-10-29]
 
 ## 2. Separate entry, steps, loss, and swaps
 
 - Do not promote an inventory row to a proof. Record whether it is a
   specification, checked instance, assumption, or proved claim.
-  [fn: build/coordinator/fn2/COHERENCE.md:48 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:48 @66ff84f4a, read 2026-10-29]
 - Distinguish E (equality/function graph), S (forward simulation), B
   (bisimulation), L (restricted lens laws), Q (declared loss), T (certified
   schedule swaps), and X (environment containment). X lies outside the
   representation squares.
-  [fn: build/coordinator/fn2/COHERENCE.md:35 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:35 @66ff84f4a, read 2026-10-29]
 - Do not infer implementation equality from two simulations into one
   nondeterministic specification; add matching or uniqueness.
-  [fn: build/coordinator/fn2/COHERENCE.md:295 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:295 @66ff84f4a, read 2026-10-29]
 - Prove **G0**: initialization or conversion establishes admissibility and
   the relation. Step preservation does not prove converter correctness.
-  [fn: build/coordinator/fn2/COHERENCE.md:91 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:91 @66ff84f4a, read 2026-10-29]
 - Prove **G1** for every admitted transition instance: matching steps or
   words preserve admissibility, relation, and named observations.
-  [fn: build/coordinator/fn2/COHERENCE.md:92 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:92 @66ff84f4a, read 2026-10-29]
 - For **G1q**, prove retained observations factor through the lossy map and
   its kernel survives the promised future operations. State a read-only
   snapshot contract explicitly when no command congruence is promised.
-  [fn: build/coordinator/fn2/COHERENCE.md:168 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:168 @66ff84f4a, read 2026-10-29]
 - Prove **G2** for declared-independent occurrences: legal routes, preserved
   occurrence meaning, and endpoints related under a future-closed contract.
   Include enabledness, effects, allocator changes, and scheduler consequences.
-  [fn: build/coordinator/fn2/COHERENCE.md:94 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/COHERENCE.md:169 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:94 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:169 @66ff84f4a, read 2026-10-29]
 - Generate cases for composite operations and shared protocols, including
   merges. Give duplicate absorption its own equation; `f` versus `ff` is
   not an adjacent swap.
-  [fn: build/coordinator/fn2/COHERENCE.md:167 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/COHERENCE.md:171 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:167 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:171 @66ff84f4a, read 2026-10-29]
 
 ## 3. Prove local cases; instantiate the generic execution theorem
 
@@ -173,12 +173,12 @@ Copy the events below in their cited books' contexts.
   [fn: fn2/meta/Fn2/Coherence.lean:67 @dddc32d34]
 - Treat the accept/close result as a refuted independence declaration;
   admission may legitimately depend on reclamation order.
-  [fn: build/coordinator/fn2/COHERENCE.md:851 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:851 @66ff84f4a, read 2026-10-29]
 
 ## 5. Paste only under the inherited premises
 
 - Do not compose pieces after silently changing their contract.
-  [fn: build/coordinator/fn2/COHERENCE.md:260 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:260 @66ff84f4a, read 2026-10-29]
 - For vertical pasting, establish that every executed label belongs to the
   supplied catalogue. A covered catalogue does not cover an omitted case.
   [fn: fn2/meta/Fn2/Square.lean:178 @dddc32d34]
@@ -189,32 +189,32 @@ Copy the events below in their cited books' contexts.
 - For the general mixed schema, check `R_AB ; approx_B subset-of approx_A ; R_AB`
   with composition read left to right; also preserve declared swaps through
   label interpretation. The relation inclusion alone is insufficient.
-  [fn: build/coordinator/fn2/COHERENCE.md:264 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:264 @66ff84f4a, read 2026-10-29]
 - Keep the pinned Lean result narrower: one representation edge, partial
   deterministic transitions, exact implementation diamonds, related start,
   and successful run.
   [fn: fn2/meta/Fn2/Coherence.lean:107 @dddc32d34]
 - For route-independent occurrence identities, additionally establish residual
   consistency across the two three-swap routes reversing three occurrences.
-  [fn: build/coordinator/fn2/COHERENCE.md:328 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:328 @66ff84f4a, read 2026-10-29]
 
 ## 6. Keep the observation contract explicit
 
 - Do not use convergence modulo article numbering to claim equal wire replies.
   Q1/WIRE preserves reply bytes; Q12 may retain validated facts and forget
   local numbering. Same-group POSTs are dependent under the former contract.
-  [fn: build/coordinator/fn2/COHERENCE.md:235 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:235 @66ff84f4a, read 2026-10-29]
 - After a failed diamond, preserve the relevant order or narrow the contract
   explicitly, then prove the resulting transition obligations.
-  [fn: build/coordinator/fn2/COHERENCE.md:731 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/COHERENCE.md:738 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:731 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:738 @66ff84f4a, read 2026-10-29]
 
 ## 7. Read TRACE as differential evidence
 
 - Do not count shared handlers as independently validated semantics. TRACE's
   independent contribution is selection order, including calendar, queues,
   and observation order.
-  [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:87 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/REVIEW-SINS-20261028.md:87 @66ff84f4a, read 2026-10-29]
 - On `TRACE DIFFERENCE`, inspect pre-state, resulting states, and
   `(status obs visits actions)`; a difference returns `(:fail :trace ...)`.
   [fn: fn2/sim/check-trace.lisp:5 @127f7b877]
@@ -222,23 +222,23 @@ Copy the events below in their cited books' contexts.
   the pinned statement is `defthm-owed`. Neither passing TRACE nor Lean
   composition discharges the ACL2 instance.
   [fn: fn2/books/reference.lisp:248 @127f7b877]
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:32 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:32 @66ff84f4a, read 2026-10-29]
 
 ## 8. State the boundary beside the conclusion
 
 - Do not infer future closure or schedule-pruning permission from passing
   bounded checks. Report the finite input domain and horizon.
-  [fn: build/coordinator/fn2/COHERENCE.md:750 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:750 @66ff84f4a, read 2026-10-29]
 - Establish physical environment containment separately from simulation into
   a fault model; native experiments do not prove universal containment.
-  [fn: build/coordinator/fn2/COHERENCE.md:810 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:810 @66ff84f4a, read 2026-10-29]
 - Prove progress and resource accounting separately; measure wall time.
   Equal finite-prefix observations do not establish liveness or equal costs.
-  [fn: build/coordinator/fn2/COHERENCE.md:130 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/COHERENCE.md:814 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:130 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:814 @66ff84f4a, read 2026-10-29]
 - Compare transported data separately: position maps, converted cuts,
   occurrence identities, and loss descriptors are not settled by thin squares.
-  [fn: build/coordinator/fn2/COHERENCE.md:289 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:289 @66ff84f4a, read 2026-10-29]
 - Separate generator soundness from completeness. Valid generators composing
   does not prove they connect every intended interchangeable route.
-  [fn: build/coordinator/fn2/COHERENCE.md:189 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:189 @66ff84f4a, read 2026-10-29]

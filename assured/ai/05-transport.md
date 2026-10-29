@@ -1,7 +1,7 @@
 # assured/ai/05. Transport across representations
 
 Load when replacing a history with a summary or carrying clients across
-a representation change. Twin of `assured/humans/05-transport.md`.
+a representation change. Companion: [Transport across representations](../humans/05-transport.md).
 fn coordinator citations retain the humans chapter's `@worktree` read date.
 
 ## 0. Pitfalls
@@ -15,7 +15,7 @@ fn coordinator citations retain the humans chapter's `@worktree` read date.
 | client transport fails after `defiso` | base correspondences and domain hypotheses still matter [example: examples/transport/cursor-v1.lisp] [example: examples/transport/cursor-iso.lisp] | 4 |
 | `:BETA-IMAGE` fails | widened epoch converts outside the old domain [example: examples/transport/cursor-wide.lisp] | 5 |
 | `:beta-of-alpha` fails | conversion drops generation [example: examples/transport/cursor-v3-lossy.lisp] | 5 |
-| generated proofs mistaken for integration or savings | logical examples leave consumers and served operations to measure and connect [fn: build/coordinator/fn2/TRANSPORT.md:566 @worktree, read 2026-10-29] | 6 |
+| generated proofs mistaken for integration or savings | logical examples leave consumers and served operations to measure and connect [fn: fn2/docs/design/TRANSPORT.md:566 @66ff84f4a, read 2026-10-29] | 6 |
 
 ## 1. Make the negative control falsify the intended obligation
 
@@ -40,7 +40,7 @@ is neither a function symbol nor a pseudo-lambda expression
   `((:read 1))` and `((:read 2))` both count 1; after `(:read 1)`, they count
   1 and 2. fn2 incorrectly described this witness as equality "at every bound".
   Strengthen this relation; do not infer that every observation needs strengthening.
-  [fn: build/coordinator/fn2/TRANSPORT.md:282 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/TRANSPORT.md:282 @66ff84f4a, read 2026-10-29]
   [example: examples/transport/read-state-teeth.lisp]
 - Prove the induction over constrained functions once. The fold contract
   exports related admissible initial states, step preservation, and observation
@@ -169,12 +169,12 @@ is neither a function symbol nor a pseudo-lambda expression
   theorem failed to transport. Use `cur1-p` and `cur2-p` for the intended
   generated names: naming removes trailing `-P` when both predicates have it.
   [example: examples/transport/cursor-v1.lisp]
-  [fn: build/coordinator/fn2/TRANSPORT.md:560 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/TRANSPORT.md:560 @66ff84f4a, read 2026-10-29]
   [books: kestrel/apt/lift-iso.lisp:827]
 - Store the base correspondences as `defthmd`. Enabling a forward
   correspondence in this experiment rewrote through its own conversion map.
   After defining the maps and base functions, use:
-  [fn: build/coordinator/fn2/TRANSPORT.md:562 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/TRANSPORT.md:562 @66ff84f4a, read 2026-10-29]
   [example: examples/transport/cursor-iso.lisp]
 
 ```lisp
@@ -243,13 +243,13 @@ The proof of the :BETA-IMAGE applicability condition fails
 
 - Do not confuse wiping pre-release data with preserving client proofs;
   fn2's corrected scope separates those tasks.
-  [fn: build/coordinator/fn2/TRANSPORT.md:27 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/TRANSPORT.md:31 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/TRANSPORT.md:27 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/TRANSPORT.md:31 @66ff84f4a, read 2026-10-29]
 - Budget the remaining work: A supplies event lemmas, converter correctness,
   and observations; B supplies domains, inverses, and base correspondences.
   `fc-rel-fold` is not B's composition engine.
-  [fn: build/coordinator/fn2/COHERENCE.md:789 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/COHERENCE.md:794 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:789 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:794 @66ff84f4a, read 2026-10-29]
 - Measure before generating another DSL. The logical cursor experiment on
   laptop ACL2 8.7 used 72 handwritten lines for 71 generated statement and
   definition lines, excluding generated proof instructions.
@@ -258,4 +258,4 @@ The proof of the :BETA-IMAGE applicability condition fails
 - Keep claims scoped: summary adequacy does not establish retained historical
   answers; cursor transport does not establish correspondence to served columns
   or scaling to generated accessor families.
-  [fn: build/coordinator/fn2/TRANSPORT.md:566 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/TRANSPORT.md:566 @66ff84f4a, read 2026-10-29]

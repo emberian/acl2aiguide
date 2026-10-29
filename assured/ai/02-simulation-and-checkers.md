@@ -1,7 +1,7 @@
 # assured/ai/02. Deterministic simulation with independent checkers as the gate
 
 Load when building or reviewing a simulation acceptance gate.
-Twin of `assured/humans/02-simulation-and-checkers.md`.
+Companion: [Build a simulation gate](../humans/02-simulation-and-checkers.md).
 Copyable example forms below come from `examples/assured/sim.lisp`.
 [example: examples/assured/sim.lisp]
 
@@ -9,15 +9,15 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 
 | symptom | cause | go to section |
 | --- | --- | --- |
-| Coverage passes without an exercised fault | Draws counted before effects [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:86 @worktree, read 2026-10-29] | 3 |
-| Every campaign explores yesterday's schedules | Fixed seeds without exploration mode [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:99 @worktree, read 2026-10-29] | 2 |
+| Coverage passes without an exercised fault | Draws counted before effects [fn: fn2/docs/design/REVIEW-SINS-20261028.md:86 @66ff84f4a, read 2026-10-29] | 3 |
+| Every campaign explores yesterday's schedules | Fixed seeds without exploration mode [fn: fn2/docs/design/REVIEW-SINS-20261028.md:99 @66ff84f4a, read 2026-10-29] | 2 |
 | Illegal reads return `:ok` | Implementation verdict needs independent ownership evidence [fn: fn2/sim/check-own.lisp:334 @127f7b877] | 4 |
 | Server reports completion after sending wrong bytes | Verdict checker trusts `done` [example: examples/assured/sim.lisp] | 5 |
 | Work counters agree while undercharging | Shared accounting needs independent observations [fn: fn2/sim/check-work.lisp:199 @127f7b877] | 6 |
-| Differential agrees on a semantic bug | Both sides execute shared handlers [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:87 @worktree, read 2026-10-29] | 6 |
-| Assertion errors print; process exits zero | Failure never reaches process status [fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:97 @worktree, read 2026-10-29] | 7 |
-| Mutant compiles badly or cannot execute | No legal distinguishing witness [fn: build/coordinator/fn2/COHERENCE.md:840 @worktree, read 2026-10-29] | 8 |
-| Simulation passes; native behavior remains unsupported | Environment containment is a separate boundary [fn: build/coordinator/fn2/COHERENCE.md:810 @worktree, read 2026-10-29] | 9 |
+| Differential agrees on a semantic bug | Both sides execute shared handlers [fn: fn2/docs/design/REVIEW-SINS-20261028.md:87 @66ff84f4a, read 2026-10-29] | 6 |
+| Assertion errors print; process exits zero | Failure never reaches process status [fn: fn2/docs/design/REVIEW-SINS-20261028.md:97 @66ff84f4a, read 2026-10-29] | 7 |
+| Mutant compiles badly or cannot execute | No legal distinguishing witness [fn: fn2/docs/design/COHERENCE.md:840 @66ff84f4a, read 2026-10-29] | 8 |
+| Simulation passes; native behavior remains unsupported | Environment containment is a separate boundary [fn: fn2/docs/design/COHERENCE.md:810 @66ff84f4a, read 2026-10-29] | 9 |
 
 ## 1. Execute the environment model itself
 
@@ -41,7 +41,7 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 
 - Fixed seeds preserve regressions but repeat schedules. Retain acceptance seeds
   and add exploration seeds; print the chosen seed before execution.
-[fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:99 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/REVIEW-SINS-20261028.md:99 @66ff84f4a, read 2026-10-29]
 - Record profile, seed, observation order, fault choices, and revision. Follow the
   pinned A4 driver: print and flush mode/seed and regenerate revision metadata before scenarios.
 [fn: fn2/docs/a-pool-host-sim.md:355 @127f7b877]
@@ -64,7 +64,7 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 - Reject coverage based on draws: fn2 counted selected faults before determining
   applicability. Select the flight, choose applicable classes, attempt the effect,
   then count its landing; spending fault budget is separate.
-[fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:86 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/REVIEW-SINS-20261028.md:86 @66ff84f4a, read 2026-10-29]
 [fn: fn2/sim/sim.lisp:475 @127f7b877]
 [fn: fn2/sim/sim-adapter-base.lisp:38 @127f7b877]
 [fn: fn2/sim/sim-state.lisp:135 @127f7b877]
@@ -170,7 +170,7 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 [fn: fn2/tests/sim-layer-a-a4-driver.lsp:91 @127f7b877]
 - Name coverage units correctly: Q21's "1,000-seed runs" is wrong.
   The pinned driver runs 1,000 echo connections with seed `20261028`.
-[fn: build/coordinator/fn2/COHERENCE.md:72 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:72 @66ff84f4a, read 2026-10-29]
 [fn: fn2/tests/sim-layer-a-a4-driver.lsp:80 @127f7b877]
 
 ## 6. Recompute WORK; bound TRACE's claim
@@ -192,7 +192,7 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 [fn: fn2/books/reference.lisp:92 @127f7b877]
 [fn: fn2/books/reference.lisp:142 @127f7b877]
 [fn: fn2/sim/check-trace.lisp:5 @127f7b877]
-[fn: build/coordinator/fn2/COHERENCE.md:815 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:815 @66ff84f4a, read 2026-10-29]
 
 ## 7. Preserve failure through process exit
 
@@ -208,8 +208,8 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 [fn: fn2/sim/check.lisp:64 @127f7b877]
 - Reject the reviewed B11/H1 patterns: known disagreements still fail;
   selected tests that skip need a distinct not-run outcome.
-[fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:120 @worktree, read 2026-10-29]
-[fn: build/coordinator/fn2/REVIEW-SINS-20261028.md:131 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/REVIEW-SINS-20261028.md:120 @66ff84f4a, read 2026-10-29]
+[fn: fn2/docs/design/REVIEW-SINS-20261028.md:131 @66ff84f4a, read 2026-10-29]
 - Use basic `assert-event` with "a form that evaluates to a single value that is not a stobj";
   it checks that evaluation "returns a non-`nil` value, causing an error otherwise."
   Default `include-book` skips assertions; inclusion is not a fresh campaign.
@@ -223,41 +223,64 @@ Copyable example forms below come from `examples/assured/sim.lisp`.
 
 - Do not count compile failures or unreachable mutants as detections. Freeze the
   mutation set before timing; require a legal witness where the original passes
-  and the mutant violates a named contract. COHERENCE proposes this experiment;
-  it does not report every mutation executed.
-[fn: build/coordinator/fn2/COHERENCE.md:840 @worktree, read 2026-10-29]
+  and the mutant violates a named contract. COHERENCE records the proposal; E1 pass 2 records the later execution.
+[fn: fn2/docs/design/COHERENCE.md:840 @66ff84f4a, read 2026-10-29]
 - Count "found" only with a saved replayable legal execution and first failing
   boundary. For a failed diamond, save common prefix, both routes, occurrence
   correspondence, and first distinguishing observation. Treat timeouts as censored;
   count duplicate detections once per mutant.
-[fn: build/coordinator/fn2/COHERENCE.md:853 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:853 @66ff84f4a, read 2026-10-29]
 - Separate reaching states from checking local obligations. Replay prefixes into
   fresh states, enumerate finite boundary choices, and retain the concrete scheduler.
-[fn: build/coordinator/fn2/COHERENCE.md:750 @worktree, read 2026-10-29]
-[fn: build/coordinator/fn2/COHERENCE.md:838 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:750 @66ff84f4a, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:838 @66ff84f4a, read 2026-10-29]
 - Do not pair reordered routes by seed alone: draws can attach to different
   operations. Supply occurrence identities and correspondence; passing bounded
   diamonds does not authorize schedule pruning in the first experiment.
-[fn: build/coordinator/fn2/COHERENCE.md:752 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:752 @66ff84f4a, read 2026-10-29]
 - Compare existing sampling, sampling with the new interface/monitors, and bounded
   enumeration with that same interface/monitors. Compare the latter pair to isolate
   search gains; retain sampling and deterministic scenarios.
-[fn: build/coordinator/fn2/COHERENCE.md:855 @worktree, read 2026-10-29]
-[fn: build/coordinator/fn2/COHERENCE.md:763 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:855 @66ff84f4a, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:763 @66ff84f4a, read 2026-10-29]
+
+- Report the later E1 pass 2 result with its scope: from initialization in
+  C1/default, random explicit choices found all six qualified mutations on
+  all three fixed seeds; iterative deepening and exact-state deduplication
+  each found M3/M5/M6. Neither enumerator added a qualified detection.
+  Explicit modes shared 200,000-transition and 120-second budgets,
+  charging replay, checking and inline original controls, excluding load.
+  Non-findings exhausted transition budgets; no final campaign hit the
+  wall limit. Keep the original liveness failure separate from mutant hits.
+  [fn: fn2/experiments/squares/E1-RESULTS.md:3-98 @d42d18c33]
+- Use the executed mutation identities, which differ from the earlier
+  proposal: M1 omits allocator dependence; M2 restores a stale send offset;
+  M3 drops completion routing; M4 replaces the offset with the latest count;
+  M5 enqueues at the FIFO head with consistent links; M6 selects latency
+  using the wrong fault class. C1 has one echo row and one accept credit.
+  Compare search gains among the explicit modes' common seven-class domain;
+  the original baseline retains its broader 26-class fault environment.
+  [fn: fn2/experiments/squares/mutants/README.md:23-31 @d42d18c33]
+  [fn: fn2/experiments/squares/MANIFEST.md:7-45 @d42d18c33]
+- Keep positive G2 evidence local. The separate C2/data ORIGINAL random
+  campaigns checked 377 equal legal pairs, 347 with byte observations;
+  repeats and common-prefix bytes are included. This finite observation
+  contract does not prove future independence.
+  [fn: fn2/experiments/squares/E1-RESULTS.md:100-161 @d42d18c33]
 
 ## 9. State the gate's boundary
 
 - Do not infer native environment containment from simulated success.
   Q6 remains an external boundary supported by native experiments.
-[fn: build/coordinator/fn2/COHERENCE.md:57 @worktree, read 2026-10-29]
-[fn: build/coordinator/fn2/COHERENCE.md:810 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:57 @66ff84f4a, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:810 @66ff84f4a, read 2026-10-29]
 - Do not infer progress or resource bounds from equal outputs. Attach fn2's
   bounded-completion claim to full input, client draining, and round-robin adapter service.
 [fn: fn2/sim/echo-evidence.lisp:30 @127f7b877]
-[fn: build/coordinator/fn2/COHERENCE.md:814 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:814 @66ff84f4a, read 2026-10-29]
 - Report workload, profile, replay inputs, contract, observation boundary, landed
   faults, and controls. Bound conclusions to the exercised domain; do not claim
   unbounded correctness or completeness of the proposed generator basis.
 [fn: fn2/sim/echo-scenario.lisp:450 @127f7b877]
 [fn: fn2/tests/sim-layer-a-a4-driver.lsp:83 @127f7b877]
-[fn: build/coordinator/fn2/COHERENCE.md:816 @worktree, read 2026-10-29]
+[fn: fn2/docs/design/COHERENCE.md:816 @66ff84f4a, read 2026-10-29]

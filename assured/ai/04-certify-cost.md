@@ -1,7 +1,7 @@
 # assured/ai/04. The one-minute rule and certify-cost discipline
 
 Load when writing a theorem generator, diagnosing certification growth, or
-splitting a slow book. The terse twin of `assured/humans/04-certify-cost.md`.
+splitting a slow book. Companion: [Keep generated proofs affordable](../humans/04-certify-cost.md).
 
 ## 0. Pitfalls
 
@@ -12,7 +12,7 @@ splitting a slow book. The terse twin of `assured/humans/04-certify-cost.md`.
 | time rises while steps fall | steps alone do not capture certification cost [fn: build/coordinator/fn2/lanes/a-quests/R5a3.REPORT.md:227-229 @worktree, read 2026-10-29] | 2 |
 | the same declaration slows after loading the core | generated proofs inherit the includer's theory [fn: build/coordinator/fn2/lanes/a-quests/R5a3.REPORT.md:214 @worktree, read 2026-10-29] | 5 |
 | assembly certifies but exceeds a minute | generation stages accumulated in one book [fn: build/coordinator/fn2/lanes/a-quests/W1.REPORT.md:25 @worktree, read 2026-10-29] | 1, 7 |
-| a split hides growing per-declaration work | book boundaries do not enforce the generator's cost contract [fn: build/coordinator/fn2/DSL-METATHEORY.md:382 @worktree, read 2026-10-29] | 6 |
+| a split hides growing per-declaration work | book boundaries do not enforce the generator's cost contract [fn: fn2/docs/design/DSL-METATHEORY.md:382 @66ff84f4a, read 2026-10-29] | 6 |
 
 ## 1. Enforce the limit per book
 
@@ -33,7 +33,8 @@ splitting a slow book. The terse twin of `assured/humans/04-certify-cost.md`.
 - Suspect broad linear rules when time grows much faster than steps.
   The NTH example gives every NTH term a candidate from every column's
   generic family; the field-specific family offers one candidate per
-  field. The step counter misses that linear-arithmetic work
+  field. The measured time grows much faster than the counted steps; use elapsed
+  time as well as step budgets
   [example: examples/assured/nth-cost.lisp].
 - Compare several sizes. These measurements isolate the same theorem with
   specific rules alone and with both families enabled
@@ -157,7 +158,7 @@ counted" lines of each DEFTHM summary, ACL2 8.7, SBCL 2.6.8, laptop,
 - Keep whole-table recognizers closed at definition; open them only in
   named bridges. Allow "at most **one linear-sized bridge per family**"
   [fn:
-  build/coordinator/fn2/DSL-METATHEORY.md:377-382 @worktree, read
+  fn2/docs/design/DSL-METATHEORY.md:377-382 @66ff84f4a, read
   2026-10-29].
 - Localize other costly automation when measurements identify it.
   One owner-lookup guard spent 32.12 of 36.61 s in tau; disabling tau
@@ -175,7 +176,7 @@ counted" lines of each DEFTHM summary, ACL2 8.7, SBCL 2.6.8, laptop,
 - Specify affine budgets, with constants per template version and
   toolchain. Use `F` for storage/layout fields, `A` for declared arms
   and handlers, and `H` for core children [fn:
-  build/coordinator/fn2/DSL-METATHEORY.md:368-375 @worktree, read
+  fn2/docs/design/DSL-METATHEORY.md:368-375 @66ff84f4a, read
   2026-10-29].
 
 ```text
@@ -187,7 +188,7 @@ generated prover steps  <= b0 + bF*F + bA*A + bH*H
   events and refusing child-pair matrices. Implement the planned cost
   gate with fixed affine step budgets at 10, 20, 32, and 64 fields;
   retain the binding per-book 60 s limit beside those budgets [fn:
-  build/coordinator/fn2/DSL-METATHEORY.md:377-382 @worktree, read
+  fn2/docs/design/DSL-METATHEORY.md:377-382 @66ff84f4a, read
   2026-10-29].
 - Preserve the recorded status: fixtures exist at `127f7b877`; the gates
   do not [fn:
@@ -196,7 +197,7 @@ generated prover steps  <= b0 + bF*F + bA*A + bH*H
 - Keep template emission inside ACL2's admission process: "a template
   emitter is not a trusted proof rule: ACL2 admits every resulting theorem"
   [fn:
-  build/coordinator/fn2/DSL-METATHEORY.md:323 @worktree, read 2026-10-29].
+  fn2/docs/design/DSL-METATHEORY.md:323 @66ff84f4a, read 2026-10-29].
 
 ## 7. Split at generation boundaries or semantic stages
 
@@ -214,8 +215,8 @@ generated prover steps  <= b0 + bF*F + bA*A + bH*H
   read 2026-10-29].
 - Choose the semantic boundary yourself: the planned composition kit
   "does not find a good semantic stage boundary by itself" [fn:
-  build/coordinator/fn2/DSL-METATHEORY.md:386 @worktree, read
+  fn2/docs/design/DSL-METATHEORY.md:386 @66ff84f4a, read
   2026-10-29].
 - Keep fixing the generator after splitting: "Splitting books does not
-  excuse growing per-declaration proof work" [fn: build/coordinator/fn2/DSL-METATHEORY.md:382
-  @worktree, read 2026-10-29].
+  excuse growing per-declaration proof work" [fn: fn2/docs/design/DSL-METATHEORY.md:382
+  @66ff84f4a, read 2026-10-29].

@@ -1,6 +1,6 @@
 # assured/ai/06. The metatheory split: Lean for frame theorems, ACL2 for instances
 
-Load when exporting ACL2 declarations to Lean, composing instance proofs, or auditing the bridge. Twin of `assured/humans/06-metatheory-split.md`.
+Load when exporting ACL2 declarations to Lean, composing instance proofs, or auditing the bridge. Companion: [The metatheory split](../humans/06-metatheory-split.md).
 Keep the pins distinct: ACL2 `127f7b877`; Lean `dddc32d34`; that Lean export labels its ACL2 source `origin/fn2/main 137695dfc`.
 [fn: fn2/meta/Fn2/Instances/LayerA.lean:1-6 @dddc32d34]
 [fn: fn2/meta/Fn2/Instances/LayerA.lean:771 @dddc32d34]
@@ -9,22 +9,22 @@ Keep the pins distinct: ACL2 `127f7b877`; Lean `dddc32d34`; that Lean export lab
 
 | symptom | cause | go to section |
 | --- | --- | --- |
-| Generated behavior changes; exported model stays unchanged | Table-only export omits admitted bodies. [fn: build/coordinator/fn2/LEAN-METATHEORY.md:169-175 @worktree, read 2026-10-29] | 7 |
-| A row is reported as a proof | Declaration, executable check and theorem admission conflated. [fn: build/coordinator/fn2/LEAN-METATHEORY.md:128-148 @worktree, read 2026-10-29] | 2 |
+| Generated behavior changes; exported model stays unchanged | Table-only export omits admitted bodies. [fn: fn2/docs/design/LEAN-METATHEORY.md:169-175 @66ff84f4a, read 2026-10-29] | 7 |
+| A row is reported as a proof | Declaration, executable check and theorem admission conflated. [fn: fn2/docs/design/LEAN-METATHEORY.md:128-148 @66ff84f4a, read 2026-10-29] | 2 |
 | Catalogue cases compose, but an executed case escapes | Coverage premise missing. [fn: fn2/meta/Fn2/Coherence.lean:489-510 @dddc32d34] | 3 |
 | Actions on different machines do not commute | Shared allocator state invalidates independence. [fn: fn2/meta/Fn2/Coherence.lean:342-417 @dddc32d34] | 4 |
 | Q1 licence is reported as Q1 proved | Per-case squares remain hypotheses. [fn: fn2/meta/Fn2/Instances/LayerAFacts.lean:51-64 @dddc32d34] | 5 |
-| Matching theorem name hides a different statement | Exact formula binding missing. [fn: build/coordinator/fn2/DSL-METATHEORY.md:513 @worktree, read 2026-10-29] | 6 |
-| Reviewed Lean fails elaboration | Reading substituted for a build. [fn: build/coordinator/fn2/LEAN-METATHEORY.md:200-205 @worktree, read 2026-10-29] | 8 |
+| Matching theorem name hides a different statement | Exact formula binding missing. [fn: fn2/docs/design/DSL-METATHEORY.md:513 @66ff84f4a, read 2026-10-29] | 6 |
+| Reviewed Lean fails elaboration | Reading substituted for a build. [fn: fn2/docs/design/LEAN-METATHEORY.md:200-205 @66ff84f4a, read 2026-10-29] | 8 |
 
 ## 1. Assign the obligation by subject
 
 - Do not move a named machine's theorem to Lean because it quantifies over every execution. Keep its code, guards, representation relation and arithmetic in ACL2.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:44-49 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:44-49 @66ff84f4a, read 2026-10-29]
 - Assign named-function and concrete-converter proofs to ACL2; parameterized presentation and diagram theorems to Lean; exported-subject fidelity to the bridge; physical execution and eventual progress to explicit environmental models and evidence.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:44-57 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:44-57 @66ff84f4a, read 2026-10-29]
 - Treat this as an engineering split. ACL2 can encode presentations and diagrams as data; the fn2 choice puts the frame in Lean with Mathlib and instance proofs beside the ACL2 implementation.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:25 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:25 @66ff84f4a, read 2026-10-29]
 
 ## 2. Keep declarations, checks and proofs distinct
 
@@ -134,18 +134,18 @@ Conclude:
 ```
 
 - For fn2's proposed Q1 decomposition, normalize reference work counters in the intermediate relation. Raw core equality mismatches concrete per-transition accounting and reference counters carried until exit.
-  [fn: build/coordinator/fn2/DSL-METATHEORY.md:252-261 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/DSL-METATHEORY.md:252-261 @66ff84f4a, read 2026-10-29]
 - Retain entry, exit, termination, selector coverage and accounting obligations. Preserve the exported refinement statement's status/count equality, resulting-core well-formedness, representation relation and action/work bounds.
-  [fn: build/coordinator/fn2/DSL-METATHEORY.md:277 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/DSL-METATHEORY.md:277 @66ff84f4a, read 2026-10-29]
   [fn: fn2/docs/OWED.md:33 @127f7b877]
 
 ## 6. Bind the bridge to subjects and statements
 
 - Do not bind an admitted theorem by name alone. Keep source and translated formulas; account for the owed wrapper. fn2's bridge is incomplete here: `defthm-owed` stores the untranslated formula.
   [fn: fn2/books/owed.lisp:11-20 @127f7b877]
-  [fn: build/coordinator/fn2/DSL-METATHEORY.md:513 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/DSL-METATHEORY.md:513 @66ff84f4a, read 2026-10-29]
 - Inspect every clause of the bridge assumption:
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:158 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:158 @66ff84f4a, read 2026-10-29]
 
 | Clause | Establish correspondence |
 | --- | --- |
@@ -157,23 +157,23 @@ Conclude:
 | Evidence | Proof/check records concern the same subjects at the same revisions |
 
 - Retain owner/case identity, contract/boundary, endpoints, formals/calling convention, both formulas, proof reference, check scope and dependencies. Reject a proposed realization with an additional unestablished hypothesis.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:144 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:144 @66ff84f4a, read 2026-10-29]
 - Keep finite-check premises owed. No ACL2 proof object enters Lean and no status row generates a Lean axiom. Compose covered trajectories whose intermediate states and contracts join; matching seed numbers do not suffice.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:142-146 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:142-146 @66ff84f4a, read 2026-10-29]
 - Do not treat the bridge assumption as replacing kernel or execution trust; opaque formulas do not discharge semantic correspondence.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:158-179 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:158-179 @66ff84f4a, read 2026-10-29]
 
 ## 7. Test captured payload, rejected payload and invisible behavior
 
 - Separate mutation outcomes. The row-only mutant failed ACL2's router guard proof; its later proof-free export is diagnostic evidence. The deadline-width mutant certified and changed payload without failing a pinned Lean control.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:164-165 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:167 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:164-165 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:167 @66ff84f4a, read 2026-10-29]
 - Preserve the measured limit: the retired-behavior mutant certified, its registry was byte-identical, and its emitted model had a zero-line diff. This refutes table-only artifact fidelity, not Lean's theorems about that presentation.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:171-175 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:171-175 @66ff84f4a, read 2026-10-29]
 - Bind generated names to admitted bodies in a `:generated` manifest with fingerprints. Record producer, emitting section and signatures, including assembly outputs.
-  [fn: build/coordinator/fn2/DSL-METATHEORY.md:145-158 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/DSL-METATHEORY.md:504 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:173-175 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/DSL-METATHEORY.md:145-158 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/DSL-METATHEORY.md:504 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:173-175 @66ff84f4a, read 2026-10-29]
 - Copy these assertions in `registry-emit.lisp`'s context. Its body manifest distinguishes the generators where the table-only export cannot. A changed fingerprint does not prove correctness.
   [example: examples/assured/registry-emit.lisp]
 
@@ -188,11 +188,30 @@ Conclude:
                           (export-row-with-bodies 'echo-v2 (w state)))))
 ```
 
+- Distinguish the later E2 pass 3 result from this earlier Lean export.
+  One public `defsquare` form served Q1 and Q4 through specialized statement
+  templates. Require every function named by a role to occur in its
+  translated statement, or record an exact unused-role exception. This is
+  syntactic binding, not semantic correctness; retain proof-formula equality
+  checks and semantic negative controls.
+  [fn: fn2/experiments/squares/E2-RESULTS.md:74-115 @d42d18c33]
+- Keep E2's statuses separate: 45 rows, 40 owed Q1 and five proved Q4;
+  83 evidence records. Fresh ORIGINAL campaigns completed 10,004 G1 checks
+  across 19/39 cases, leaving 20 unexercised. The 14 books passed local
+  certification below 60 seconds each; these are E2 package results.
+  [fn: fn2/experiments/squares/E2-RESULTS.md:1-28 @d42d18c33]
+- Charge all support: E2 used 2,085 physical source lines, 1,454 new and
+  631 copied. Fourteen were wrapped consumer declarations and 2,071 were
+  other source. No implemented manual-registration baseline established
+  net savings. Shared-handler defects still need independent client oracles.
+  [fn: fn2/experiments/squares/E2-RESULTS.md:151-168 @d42d18c33]
+  [fn: fn2/experiments/squares/E2-RESULTS.md:18-23 @d42d18c33]
+
 ## 8. Build and report only the assurance obtained
 
 - Do not substitute review for elaboration. Run the recorded commands from `fn2/meta`; keep build, axiom census, export freshness and instance bindings separate.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:193-198 @worktree, read 2026-10-29]
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:215 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:193-198 @66ff84f4a, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:215 @66ff84f4a, read 2026-10-29]
 
 ```sh
 lake build
@@ -200,11 +219,11 @@ lake env lean AxiomCensus.lean
 ```
 
 - For the recorded failures: expose concrete carriers through abbreviations; give concealed-carrier arithmetic binders explicit `Nat` types; rewrite with the step hypothesis before simplification unfolds the accept/close step.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:200-203 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:200-203 @66ff84f4a, read 2026-10-29]
 - Withdraw a failed proof claim even when Lean is not a first-release shipping prerequisite. Keep admitted theorems, translated owed rows and passing checks distinct.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:215 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:215 @66ff84f4a, read 2026-10-29]
 - Do not claim ACL2 soundness, opaque-formula truth, universal validity from bounded checks, or durability, fairness and environmental integrity from simulation squares.
-  [fn: build/coordinator/fn2/LEAN-METATHEORY.md:177-179 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/LEAN-METATHEORY.md:177-179 @66ff84f4a, read 2026-10-29]
 - Do not claim frame completeness. Coherence covers routes already connected by declared swaps; it does not establish that every intended interchangeable pair is connected.
   [fn: fn2/meta/Fn2/Coherence.lean:111-119 @dddc32d34]
-  [fn: build/coordinator/fn2/COHERENCE.md:291-303 @worktree, read 2026-10-29]
+  [fn: fn2/docs/design/COHERENCE.md:291-303 @66ff84f4a, read 2026-10-29]

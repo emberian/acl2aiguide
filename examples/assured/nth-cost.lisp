@@ -27,12 +27,12 @@
 ;     24   0.01 s,  2,292 steps     0.50 s, 3,879 steps
 ;     36   0.02 s,  3,420 steps     2.07 s, 6,675 steps
 ;
-; Two lessons.  The specific family grows linearly in N and the generic one
-; about fiftyfold from N = 12 to N = 36.  And the step count does not track
-; the time: at N = 36 the generic proof takes a hundred times as long as
-; the specific one for about twice the steps, so a prover-step budget set
-; from the specific proof would not have caught this family.  This book
-; uses N = 24.
+; Two lessons.  Across these sizes the specific step count is linear in N;
+; with both families enabled, time grows about fiftyfold from N = 12 to 36.
+; At N = 36 the latter proof takes about a hundred times as long for about
+; twice the counted steps.  A step budget above 6,675 admits both proofs;
+; a lower budget could reject the slower one.  Steps alone are not a time
+; estimate.  This book uses N = 24.
 ;
 ; Cited by assured/humans/04-certify-cost.md and assured/ai/04-certify-cost.md.
 

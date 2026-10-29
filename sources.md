@@ -189,6 +189,47 @@ main worktree on 2026-10-29: `build/coordinator/fn2/COHERENCE.md`,
 `RELEASE-PLAN.md`, `REVIEW-SINS-20261028.md`, `lanes/a-continuation.md`,
 `lanes/a-quests/W1.REPORT.md`, `lanes/a-quests/R5a3.REPORT.md`.
 
+### Public copies and later squares experiments
+
+For the reader edition of part 3, the following coordinator notes were
+compared byte for byte with the tracked design record at fn revision
+`66ff84f4a` on 2026-10-29. The copies match, including line numbers.
+Citations now use `fn2/docs/design/NAME.md @66ff84f4a` in place of
+`build/coordinator/fn2/NAME.md @worktree, read 2026-10-29` for:
+
+- `COHERENCE`, `DSL-METATHEORY`, `LEAN-METATHEORY`, `HIGHER-STRUCTURES`.
+- `TRANSPORT`, `UNIVERSAL-CONSTRUCTIONS`, `EXECUTION-MODEL`.
+- `RELEASE-PLAN`, `REVIEW-SINS-20261028`.
+
+[Open the pinned design record](https://github.com/emberian/fn/tree/66ff84f4a/fn2/docs/design).
+The earlier provenance list above remains the record of where the first
+draft read them. The continuation and quest reports still use private,
+dated `@worktree` locators. Their quoted evidence remains in the chapters.
+Implementation claims remain at `127f7b877`, and the Lean code remains at
+`dddc32d34`; changing a document locator does not advance those code pins.
+
+The later experiment reports are pinned separately to `d42d18c33`:
+
+- [E1 pass 2 results](https://github.com/emberian/fn/blob/d42d18c33/fn2/experiments/squares/E1-RESULTS.md):
+  matched search budgets, original-versus-mutant qualification, local
+  diamonds, reached cases and exclusions. Cited by chapters 2 and 7.
+- [E1 pass 2 manifest](https://github.com/emberian/fn/blob/d42d18c33/fn2/experiments/squares/pass2/MANIFEST.md):
+  seeds, choice domains, budgets, replay charges and exact-state cache
+  policy. Cited by chapter 2.
+- [E1 original manifest](https://github.com/emberian/fn/blob/d42d18c33/fn2/experiments/squares/MANIFEST.md)
+  and [mutation definitions](https://github.com/emberian/fn/blob/d42d18c33/fn2/experiments/squares/mutants/README.md):
+  the baseline/explicit choice-domain difference and the six executed
+  defects, which differ from the design proposal. Cited by chapter 2.
+- [E2 pass 3 results](https://github.com/emberian/fn/blob/d42d18c33/fn2/experiments/squares/E2-RESULTS.md):
+  common declaration form, specialized statement templates, role binding,
+  proof/evidence status and full source costs. Cited by chapters 6 and 7.
+
+These are published experimental results read for the revision, not new
+campaigns run by the guide editor. E2's certificates are local author
+checks; the report makes no farm/record-toolchain certification claim.
+The experiment reports include regeneration commands for ignored raw
+artifacts.
+
 ## Papers (`~/paperbin/FILENAME`)
 
 - humans/03, 04: `goel2013-acl2-abstract-stobjs-isa-modeling.txt`,

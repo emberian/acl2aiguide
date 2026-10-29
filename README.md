@@ -1,17 +1,22 @@
 # acl2aiguide
 
-A guide to ACL2 for humans and for AIs: the logic and the prover, how proofs
-fail and how to read them, modelling (records, stobjs, abstract stobjs, guards,
-`mbe`, fixed-width arithmetic, I/O and crash models, state machines,
-refinement, functional instantiation), high-performance software in ACL2 (the
-executable/logical split, static allocation, no consing on hot paths, code
-generation), the process that gets assurance without drowning in it, and, for
-agents, the pitfalls first.
+Learn to write ACL2 programs, state what they guarantee, and diagnose
+proofs that fail. The guide has explanations for human readers and
+self-contained instructions for coding agents, with small certified
+examples throughout.
+
+The coverage runs from the logic and prover to systems engineering:
+records, stobjs and abstract stobjs; guards, `mbe` and fixed-width
+arithmetic; I/O and crash models; state machines and refinement;
+functional instantiation; the executable/logical split; static allocation
+and allocation-free hot paths; code generation; and a development process
+that keeps proof work manageable. Agent chapters lead with pitfalls and
+forms to copy.
 
 It is written from the ACL2 manual and community books (ACL2 8.7), from the fn
 project (an ACL2-verified NNTP server, two years and about 1,400 books, now
 being rebuilt as fn2), from papers, and from the transcripts of the agents that
-did the work. Every claim carries a source line (`WRITING.md`). Every example
+did the work. Claims carry source references, inline or in footnotes ([writing rules](WRITING.md)). Every example
 under `examples/` certifies on a laptop ACL2.
 
 ## How to read it
@@ -19,7 +24,8 @@ under `examples/` certifies on a laptop ACL2.
 - **Humans** start at `humans/01-logic-and-prover.md` and read in order.
 - **Agents** load `ai/00-pitfalls-first.md` and `ai/01-form-shapes.md` into
   context before touching ACL2, then the `ai/` chapter for the task at hand.
-- **Builders of assured systems** read `assured/` (part 3).
+- **Builders of assured systems** start with [Part 3](assured/README.md),
+  including a reading route through coherence, transport and metatheory.
 - **fn2 builders** read `fn-lessons/` first: what fn taught, by wound, each
   with the path and sha that shows it.
 - `examples/` are small certified books, one per technique; `make -C
@@ -93,10 +99,11 @@ under `examples/` certifies on a laptop ACL2.
 
 ### Part 3: assured TigerStyle (`assured/`)
 
-A framework for TigerStyle systems software whose rules ACL2 carries,
-written from fn2's working layer A and Lean metatheory (`assured/README.md`).
-Each chapter has a humans version (`assured/humans/`) and an agent twin
-(`assured/ai/`); certified shapes are in `examples/assured/`.
+How to enforce systems rules through declarations, test them with
+independent observations, and reuse proofs across representation changes.
+The worked examples come from fn2's layer A, its Lean metatheory and the
+later squares experiments. [The Part 3 reading guide](assured/README.md)
+links the human explanations, agent instructions and certified examples.
 
 - `01-rules-as-declarations`: bounds in guards, budgets as guards and
   measures, no allocation after init, ownership states, named stops, with
@@ -104,7 +111,7 @@ Each chapter has a humans version (`assured/humans/`) and an agent twin
 - `02-simulation-and-checkers`: deterministic simulation as the gate:
   seeded and replayable, landings counted, checkers that compare
   witnesses, mutation controls.
-- `03-commuting-squares`: every correctness claim as a commuting square:
+- `03-commuting-squares`: representation changes and schedule swaps as squares:
   the generating set, pastings and their premises, the false diamond.
 - `04-certify-cost`: the one-minute rule, the per-array rule family,
   generic templates, the cost contract, splits.

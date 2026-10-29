@@ -131,13 +131,14 @@ path and say the example is theirs.
 
 ## Writing
 
-`WRITING.md` is the contract. In short: pitfalls first; every claim has a
-source line in one of the seven forms; quote the manual for an obligation;
+`WRITING.md` is the contract. Lead with the reader's problem and the useful
+claim; use failure-first explanations where they teach the mechanism.
+Every claim has a source, inline or in a footnote; quote the manual for an obligation;
 show forms whole; show prover output when the point is reading it; ASCII,
 no emoji; `humans/` explains, `ai/` instructs; fn is the worked example and
-its wounds are named with path and sha. Aim for depth: a `humans/` chapter
-is typically 800 to 2,000 lines; nothing is padded, nothing is skipped
-because it is hard. Write each chapter whole into its file; if you revise,
+its failures are named with path and sha. Let the explanation determine
+length: preserve the definitions, assumptions, examples and limits without
+padding or skipping difficult material. Write each chapter whole into its file; if you revise,
 rewrite the file whole (no appended "update" paragraphs).
 
 ## What you deliver
