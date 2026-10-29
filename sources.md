@@ -27,7 +27,11 @@ reports the sources it added; the coordinator keeps this file whole.
   `misc/{definline,expander,total-order,...}`, `xdoc/*`.
   NOT certified here (cite their own tests instead of certifying): `demos/*`,
   `std/stobjs/*`, `centaur/fgl`, `centaur/gl`, `centaur/fty` (4 of 21),
-  `kestrel/apt`, `kestrel/c/atc`, `centaur/bitops` (6 of 71).
+  `kestrel/apt` (except the `propagate-iso` closure, below),
+  `kestrel/c/atc`, `centaur/bitops` (6 of 71).
+  Certified 2026-10-28 for `examples/transport/`: the closures of
+  `kestrel/apt/propagate-iso`, `std/util/defiso`, `std/util/defmapping` and
+  `std/system/theorem-namep` (about 160 books, 62 s wall at `-j 4`).
 
 ## ACL2 manual topics (`:doc TOPIC`)
 
