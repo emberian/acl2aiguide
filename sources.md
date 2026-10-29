@@ -89,6 +89,12 @@ defstobj, defstobj-element-type, defun-inline, efficiency, evaluation,
 guards-and-evaluation, hons-summary, mbt, note-6-2, profile, the, time$,
 with-local-stobj.
 
+Cited by `assured/` (beyond the above): accumulated-persistence,
+apt::propagate-iso, congruence, defcong, defequiv, defiso, defmapping,
+defthm, defun-nx, lemma-instance, stobj, table (`defiso` and `defmapping`
+in `std/util/defiso-doc.lisp`, `std/util/defmapping-doc.lisp`;
+`propagate-iso` in `kestrel/apt/propagate-iso-doc.lisp`).
+
 ## Community books (`books/PATH`)
 
 - `build/doc.lisp` (cert.pl: lines 34, 297, 558), `doc/practices.lisp:511`
@@ -113,6 +119,9 @@ with-local-stobj.
   `isodata-doc.lisp`, `expdata-doc.lisp`, `parteval-doc.lisp`,
   `finite-difference.lisp`, `casesplit-doc.lisp`, `lift-iso-doc.lisp`,
   `tailrec-doc.lisp` (humans/05).
+
+Cited by `assured/`: `kestrel/apt/lift-iso.lisp`,
+`kestrel/apt/propagate-iso-test-1.lisp`, `std/util/defiso.lisp`.
 
 ## fn books and documents (`PATH @SHA`, sha of `origin/dev` unless stated)
 
@@ -165,6 +174,21 @@ with-local-stobj.
   `CUT-M2-PLAN-20261027.md`, `lanedumps/cut-m2a-lb-continuation.md`,
   `REPRESENTATION-HISTORY-20261028.md`.
 
+### fn2 (part 3, `assured/`)
+
+fn2 lives in the fn repository. Books, simulator, tests and design record
+on `origin/fn2/main` at `127f7b877` (`fn2/books/*.lisp`, `fn2/sim/*.lisp`,
+`fn2/tests/sim-layer-a-a4-driver.lsp`, `fn2/docs/OWED.md`,
+`fn2/docs/a-pool-host-sim.md`, `fn2/docs/design/EXECUTION-MODEL.md`); the
+Lean metatheory on `origin/fn2/lean-meta` at `dddc32d34` (`fn2/meta/Fn2/*.lean`,
+`fn2/meta/AxiomCensus.lean`, `fn2/meta/emit/*`); the W1 commit `1fa1fe24b`
+(cited by its message). Coordinator documents, untracked, read in fn's
+main worktree on 2026-10-29: `build/coordinator/fn2/COHERENCE.md`,
+`DSL-METATHEORY.md`, `LEAN-METATHEORY.md`, `HIGHER-STRUCTURES.md`,
+`TRANSPORT.md`, `UNIVERSAL-CONSTRUCTIONS.md`, `EXECUTION-MODEL.md`,
+`RELEASE-PLAN.md`, `REVIEW-SINS-20261028.md`, `lanes/a-continuation.md`,
+`lanes/a-quests/W1.REPORT.md`, `lanes/a-quests/R5a3.REPORT.md`.
+
 ## Papers (`~/paperbin/FILENAME`)
 
 - humans/03, 04: `goel2013-acl2-abstract-stobjs-isa-modeling.txt`,
@@ -189,6 +213,12 @@ with-local-stobj.
 - `coglio2022-acl2-atc-proof-generating-c-code-generator.txt` (abstract,
   section 1), `coglio2020-acl2-apt-isomorphic-data-type-transformations.txt`
   (humans/05).
+
+Cited by `assured/` (beyond the above):
+`godefroid1995-thesis-partial-order-methods-verification-concurrent-systems.pdf`,
+`mazurkiewicz1995-introduction-to-trace-theory.pdf`,
+`pous-sangiorgi2019-bisimulation-and-coinduction-enhancements-historical-perspective.pdf`,
+`tigerbeetle2026-tiger-style.md`, `tigerbeetle2026-internals-vopr.md`.
 
 ## Transcripts (`cv show SESSION --around INDEX`)
 
@@ -220,3 +250,17 @@ with-local-stobj.
 
 Each `[measured: ...]` in a chapter names its form; all were taken on the
 laptop with ACL2 8.7 / SBCL 2.6.8 from the forms of the cited example book.
+
+- **Part 3 measurements (2026-10-29, ACL2 8.7, SBCL 2.6.8, laptop).** The
+  generic-versus-specific NTH rule table in `assured/humans/04-certify-cost.md`
+  (a REPL driver generating `examples/assured/nth-cost.lisp`'s theorems at
+  12, 24 and 36 fields): the generic version's time grows about fiftyfold
+  from 12 to 36 fields, and at 36 fields it takes a hundred times the
+  specific version's time for about twice its prover steps. The owed and
+  `defthm` counts at fn2 `127f7b877` in `assured/humans/07-honest-costs.md`
+  (`git show`/`git grep` pipelines stated there). Every `must-fail` in
+  `examples/assured/` rerun without its wrapper and its reason read.
+- **`timeout` does not stop ACL2.** A REPL driver under `timeout 200`
+  ran past four minutes: the SIGTERM `timeout` sends did not end the SBCL
+  process. Use `timeout -s KILL` for ACL2 drivers (measured 2026-10-29,
+  laptop).

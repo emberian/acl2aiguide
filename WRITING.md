@@ -1,7 +1,7 @@
 # How a chapter of this guide is written
 
-These rules bind every file under `humans/`, `ai/`, `fn-lessons/` and
-`examples/`. A chapter that breaks one is sent back.
+These rules bind every file under `humans/`, `ai/`, `fn-lessons/`,
+`assured/` and `examples/`. A chapter that breaks one is sent back.
 
 ## Sources, or nothing
 
@@ -32,6 +32,10 @@ These rules bind every file under `humans/`, `ai/`, `fn-lessons/` and
    - `[file: PATH:LINE]` — a document on this machine that is neither fn
      nor a paper (`[file: ~/dev/minidregg/CLAUDE.md:18-21]`), quoted, since
      a reader cannot open it.
+   - `[guide: PATH:LINE]` — a file in this repository (a chapter, an
+     example's README), by path from the repository root.
+   - `[fn: commit message of SHA]` — the message of an fn commit, read
+     with `git show -s SHA`.
    - `[measured: COMMAND]` — a number this guide's author measured, with the
      command that produced it, the ACL2 version, and the machine.
 3. **A claim with none of these is deleted**, not hedged.

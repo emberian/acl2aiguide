@@ -19,6 +19,7 @@ under `examples/` certifies on a laptop ACL2.
 - **Humans** start at `humans/01-logic-and-prover.md` and read in order.
 - **Agents** load `ai/00-pitfalls-first.md` and `ai/01-form-shapes.md` into
   context before touching ACL2, then the `ai/` chapter for the task at hand.
+- **Builders of assured systems** read `assured/` (part 3).
 - **fn2 builders** read `fn-lessons/` first: what fn taught, by wound, each
   with the path and sha that shows it.
 - `examples/` are small certified books, one per technique; `make -C
@@ -89,6 +90,30 @@ under `examples/` certifies on a laptop ACL2.
   form, restart after an edit, certify before reporting, what a certificate
   covers, long work in the background with a PID file, event reports and
   resuming the agent that holds the context.
+
+### Part 3: assured TigerStyle (`assured/`)
+
+A framework for TigerStyle systems software whose rules ACL2 carries,
+written from fn2's working layer A and Lean metatheory (`assured/README.md`).
+Each chapter has a humans version (`assured/humans/`) and an agent twin
+(`assured/ai/`); certified shapes are in `examples/assured/`.
+
+- `01-rules-as-declarations`: bounds in guards, budgets as guards and
+  measures, no allocation after init, ownership states, named stops, with
+  `defcolumns` and `defmachine` as the worked forms.
+- `02-simulation-and-checkers`: deterministic simulation as the gate:
+  seeded and replayable, landings counted, checkers that compare
+  witnesses, mutation controls.
+- `03-commuting-squares`: every correctness claim as a commuting square:
+  the generating set, pastings and their premises, the false diamond.
+- `04-certify-cost`: the one-minute rule, the per-array rule family,
+  generic templates, the cost contract, splits.
+- `05-transport`: functional instantiation, `propagate-iso`, the summary
+  certificate up to congruence.
+- `06-metatheory-split`: Lean for frame theorems, ACL2 for instances, the
+  emitted presentation, the measured limit, a reading is not a build.
+- `07-honest-costs`: proved against owed, the plan's estimates, what the
+  method does not buy.
 
 ### fn lessons (`fn-lessons/`)
 

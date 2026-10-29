@@ -7,46 +7,66 @@ Rules: `WRITING.md`. Toolchain: `sources.md` "Toolchain". Public at
 secrets, no absolute machine paths (sweep `/Users/ember` and `/private/tmp`
 out of every new file before committing).
 
-## State (2026-10-28)
+## State (2026-10-29)
 
-All three milestones reached and pushed:
+Parts 1 and 2, `fn-lessons/`, and their examples: unchanged since
+2026-10-28 (see git history for that state's account).
 
-- **Part 1 first complete draft**: `humans/01`..`06` (prover and rewriting;
-  modelling data and systems; performance; process).
-- **Part 2 first complete draft**: `ai/00` (pitfalls first, ranked from the
-  transcripts), `ai/01` (form shapes), `ai/02` (reading the manual, ACL2 as
-  a tool), `ai/03`..`06` (the terse twins of part 1 plus running ACL2 from
-  an agent).
-- **fn-lessons**: README plus 23 wounds.
-- **Examples certified**: 86 books under `examples/` certify from clean with
-  `make -C examples clean && make -C examples` (cert.pl, laptop ACL2 8.7 /
-  SBCL 2.6.8, `ACL2_BOOK_HASH_ALISTP=NIL`, one certification at a time).
+**Part 3, `assured/` ("a framework for assured TigerStyle with ACL2"),
+first complete draft**, written from fn2's working instance:
+`assured/README.md`, seven humans chapters (`assured/humans/01`..`07`:
+rules as declarations; simulation and checkers; commuting squares;
+certify cost; transport; the metatheory split; honest costs) and their
+seven agent twins (`assured/ai/01`..`07`). Pinned sources: fn2 books on
+`origin/fn2/main` `127f7b877`, Lean on `origin/fn2/lean-meta` `dddc32d34`,
+coordinator documents read 2026-10-29 (`sources.md`, "fn2 (part 3)").
 
-Every chapter was reviewed by the coordinator against the manual: every
-`[:doc]` topic grepped in `books/system/doc/acl2-doc.lisp` (or the
-community book named), quoted phrases spot-checked against the source,
-every cited paper confirmed in `~/paperbin`, several transcript citations
-opened. Three claims were settled by measurement during review and recorded
-in `sources.md` "Measurements": the comment-edit book-hash question, the
-`:linear` memory fault, the `defabsstobj` one-book `attach-stobj` failure
-(Lane B's). `README.md` and `sources.md` are current.
+**Examples certified**: 12 new books in `examples/assured/`
+(`README.md` maps them to chapters); all 107 books under `examples/`
+certify from clean with `make -C examples clean && make -C examples`
+(laptop, ACL2 8.7 / SBCL 2.6.8, one certification at a time, 2026-10-29).
+
+How part 3 was written: the coordinator wrote the 12 examples and humans
+01 and 04; Astra (`codex exec -m gpt-6-astra -s read-only`) drafted
+humans 02, 03, 05, 06, 07 and all seven ai twins from briefs naming the
+sources; the coordinator reviewed each against the sources (manual quotes
+grepped in `acl2-doc.lisp` and community-book docs; fn2 and Lean line
+citations opened at the pinned shas; paperbin filenames checked) and
+replaced the drafts' placeholder example text with what the certified
+books actually assert. No Opus writer was spawned.
+
+Findings made while writing, now in the text:
+- The step counter does not track the per-array NTH family's cost: at 36
+  fields the generic proof takes a hundred times the specific one's time
+  for about twice the steps (`assured/humans/04` 4.3, `sources.md`).
+- `examples/assured/owed.lisp`'s owed row `sat-run-monotone` is false at
+  x = 256 (Astra found it; now proved in the book as
+  `sat-run-monotone-false-at-256`): a certified ledger can hold a false
+  conjecture with passing teeth (`assured/humans/07` 7.2).
+- `timeout` (SIGTERM) does not stop an SBCL ACL2 driver; use
+  `timeout -s KILL` (`sources.md` "Measurements").
 
 ## Known gaps (not blockers)
 
-- GL/FGL, ATC, APT, FTY and `std/io` are shown through the community books'
-  own tests; they are not certified on the laptop (closures too long).
-- `xdoc::save` has no recipe (not run here).
-- The `attach-stobj` one-book failure ("This is supposed to be impossible",
-  humans/03 3.10) may be worth reporting upstream.
-- Chapter line counts: `ai/03` and `ai/04` run over the brief's 700-line
-  target because each condenses two humans chapters.
-- `fn-lessons` cites `ad44eec2#263` for the false OB-2 (a Lean episode).
+- `assured/ai/*` twins were drafted by Astra from the finished humans
+  chapters and spot-checked, not read line by line by the coordinator.
+- `examples/assured/sim.lisp`'s replay assertion compares two identical
+  calls; it does not pin a stored fingerprint across edits.
+- No example isolates WORK-style independent accounting, a process driver
+  that fails on missing execution, or a generator-mode (paired replay)
+  checker; chapter 2 cites fn2's forms for these.
+- `summary-upto.lisp` instantiates the parity counter, not read-state
+  (HIGHER-STRUCTURES section 6 proposed re-instantiating read-state).
+- The new citation forms `[guide: PATH:LINE]` and
+  `[fn: commit message of SHA]` were added to `WRITING.md` for part 3.
+- Earlier gaps stand: GL/FGL, ATC, APT (beyond `propagate-iso`), FTY,
+  `std/io` shown by their own tests; `xdoc::save` has no recipe; the
+  `attach-stobj` one-book failure may be worth reporting upstream.
 
 ## Next, if resumed
 
-1. A second-pass audit by a fresh reader of one chapter at a time against
-   the manual, looking for paraphrased obligations that should be quotes.
-2. Trim `ai/03` and `ai/04` toward 700 lines if an agent-context budget
-   asks for it; keep every form.
-3. If ember wants GL/FGL or ATC examples certified, do it on a box with
-   those closures built, never on the laptop.
+1. A coordinator line-by-line pass over `assured/ai/*` against their
+   humans chapters.
+2. Refresh part 3 when fn2 moves: the owed counts, the stop-reason enum
+   and the generator line numbers are pinned to `127f7b877`.
+3. Add the missing examples above if a reader asks for them.
